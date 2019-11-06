@@ -3,6 +3,21 @@
 	<!-- us -->
 	<cycle>100</cycle>
 	
+	<host name="flow1">
+		<!-- flow -->
+		<entry>
+			<!-- us -->
+			<start>0</start>
+			<queue>7</queue>
+			<dest>01:00:00:00:00:04</dest>
+			<group>01:00:00:00:00:04</group>
+			<!-- byte -->
+			<size>354</size>
+			<uniqueID>2</uniqueID>
+			<phase>0</phase>
+		</entry>
+	</host>
+	
 	<host name="robotController">
 		<!-- flow -->
 		<entry>

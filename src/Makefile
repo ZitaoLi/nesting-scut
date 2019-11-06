@@ -53,6 +53,7 @@ OBJS = \
     $O/nesting/linklayer/framePreemption/EtherMACFullDuplexPreemptable.o \
     $O/nesting/linklayer/framePreemption/FrameForward.o \
     $O/nesting/linklayer/framePreemption/PreemptedFrame.o \
+    $O/nesting/node/ethernet/MergingPipe.o \
     $O/nesting/ieee8021q/Ieee8021qcbHeader_m.o \
     $O/nesting/linklayer/common/VLANTag_m.o \
     $O/nesting/linklayer/common/VLANTagR_m.o \

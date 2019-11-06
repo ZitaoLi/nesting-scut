@@ -179,6 +179,19 @@ int VlanEtherTrafGenSched::scheduleNextTickEvent() {
 void VlanEtherTrafGenSched::loadScheduleOrDefault(cXMLElement* xml) {
     std::string hostName =
             this->getModuleByPath(par("hostModule"))->getFullName();
+
+    // earse [*] part
+    std::string target = hostName;
+    std::string _hostName;
+    for (auto it = target.begin(); it != target.end(); it++) {
+        if (*it != '[') {
+            _hostName += *it;
+        } else if (*it == '[') {
+            break;
+        }
+    }
+    hostName = _hostName;
+
     HostSchedule<Ieee8021QCtrl>* schedule;
     bool realScheduleFound = false;
     //try to extract the part of the schedule belonging to this host

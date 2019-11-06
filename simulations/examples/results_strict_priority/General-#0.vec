@@ -1,14 +1,14 @@
 version 2
-run General-0-20191104-15:26:10-6310
+run General-0-20191105-14:18:28-24759
 attr configname General
-attr datetime 20191104-15:26:10
+attr datetime 20191105-14:18:28
 attr experiment General
 attr inifile 13_example_strict-priority_non-fifo_host3.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TestScenario7
-attr processid 6310
+attr processid 24759
 attr repetition 0
 attr replication #0
 attr resultdir results_strict_priority
@@ -19,7 +19,9 @@ param **.verbose true
 param **.promiscuous true
 param **.registerProtocol true
 param **.*.clock.clockRate "\"1us\""
-param **.robotController.eth.address "\"01-00-00-00-00-01\""
+param **.robotController.numberOfFlow 2
+param **.robotController.flow1[0].eth.address "\"01-00-00-00-00-01\""
+param **.robotController.flow1[1].eth.address "\"01-00-00-00-00-02\""
 param **.roboticArm1.eth.address "\"01-00-00-00-00-04\""
 param **.roboticArm2.eth.address "\"01-00-00-00-00-04\""
 param **.switch*.processingDelay[*].delay 5us
@@ -46,7 +48,8 @@ param **.queues[7].expressQueue true
 param **.queues[*].bufferCapacity 363360b
 param **.switchA.eth[0].mac.enablePreemptingFrames false
 param **.switchA.eth[1].mac.enablePreemptingFrames false
-param **.robotController.trafGenSchedApp*.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.robotController.flow1[0].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.robotController.flow1[1].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
 param **.roboticArm1.trafGenApp.numPacketsPerBurst 0
 param **.roboticArm1.trafGenApp.sendInterval 1ms
 param **.roboticArm1.trafGenApp.packetLength 100B
@@ -318,6 +321,135 @@ attr title "queue length, vector"
 vector 87 TestScenario7.roboticArm2.eth.queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
+vector 88 TestScenario7.robotController.flow1[0].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 89 TestScenario7.robotController.flow1[1].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 90 TestScenario7.robotController.flow1[0].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 91 TestScenario7.robotController.flow1[1].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 92 TestScenario7.robotController.flow1[0].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 93 TestScenario7.robotController.flow1[1].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 94 TestScenario7.robotController.toHost[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 95 TestScenario7.robotController.toHost[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 96 TestScenario7.robotController.flow1[0].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 97 TestScenario7.robotController.toHost[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 98 TestScenario7.robotController.toHost[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 99 TestScenario7.robotController.flow1[1].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 100 TestScenario7.robotController.toChannel.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 101 TestScenario7.robotController.toChannel.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 102 TestScenario7.switchA.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 103 TestScenario7.switchA.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 104 TestScenario7.switchA.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 105 TestScenario7.switchA.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 106 TestScenario7.switchA.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 107 TestScenario7.switchA.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 108 TestScenario7.switchA.processingDelay[0] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 109 TestScenario7.switchA.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 110 TestScenario7.switchA.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 111 TestScenario7.switchA.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 112 TestScenario7.switchA.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 113 TestScenario7.switchA.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 114 TestScenario7.switchA.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 115 TestScenario7.switchA.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 116 TestScenario7.switchA.eth[1].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 117 TestScenario7.switchA.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 118 TestScenario7.switchA.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 119 TestScenario7.switchA.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 120 TestScenario7.switchA.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 121 TestScenario7.switchA.eth[2].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
 0	0	0	0
 1	0	0	0
 2	0	0	0
@@ -334,6 +466,8 @@ attr title "queue length, vector"
 13	0	0	0
 14	0	0	0
 15	0	0	0
+15	157	0.0000082512	1
+15	166	0.0000082512	0
 16	0	0	0
 17	0	0	0
 18	0	0	0
@@ -342,6 +476,8 @@ attr title "queue length, vector"
 21	0	0	0
 22	0	0	0
 23	0	0	0
+23	158	0.0000082512	1
+23	176	0.0000082512	0
 24	0	0	0
 25	0	0	0
 26	0	0	0
@@ -406,4 +542,47 @@ attr title "queue length, vector"
 85	0	0	0
 86	0	0	0
 87	0	0	0
+88	98	0	364
+89	99	0	364
+90	100	0	364
+91	101	0	364
+92	102	0	382
+93	103	0	382
+94	115	0.0000000312	382
+95	115	0.0000000312	382
+96	116	0.0000000312	382
+97	117	0.0000000312	382
+98	117	0.0000000312	382
+99	118	0.0000000312	382
+100	121	0.0000000312	382
+100	122	0.0000000312	382
+101	125	0.0000031512	382
+101	135	0.0000063672	382
+102	127	0.0000032512	390
+102	137	0.0000064672	390
+103	127	0.0000032512	382
+103	137	0.0000064672	382
+104	127	0.0000032512	382
+104	137	0.0000064672	382
+105	128	0.0000032512	364
+105	138	0.0000064672	364
+106	129	0.0000032512	360
+106	139	0.0000064672	360
+107	134	0.0000032512	354
+107	144	0.0000064672	354
+108	134	0.0000032512	5e-06
+108	144	0.0000064672	5e-06
+109	145	0.0000082512	354
+110	157	0.0000082512	360
+111	158	0.0000082512	360
+112	166	0.0000082512	0
+113	170	0.0000082512	364
+114	171	0.0000082512	364
+115	172	0.0000082512	382
+116	172	0.0000082512	0
+117	176	0.0000082512	0
+118	180	0.0000082512	364
+119	181	0.0000082512	364
+120	182	0.0000082512	382
+121	182	0.0000082512	0
 

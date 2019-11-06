@@ -17,7 +17,7 @@ package nesting.simulations.examples;
 
 import ned.DatarateChannel;
 import nesting.node.ethernet.VlanEtherSwitchPreemptable2;
-import nesting.node.ethernet.VlanEtherHostSched3;
+import nesting.node.ethernet.VlanEtherMultiHostSched;
 import nesting.node.ethernet.VlanEtherHostFullLoad;
 import nesting.node.ethernet.VlanEtherHostQ2;
 
@@ -49,7 +49,7 @@ network TestScenario7
             gates:
                 ethg[2];
         }
-        robotController: VlanEtherHostSched3 {
+        robotController: VlanEtherMultiHostSched {
             @display("p=79,202");
         }
         roboticArm1: VlanEtherHostQ2 {

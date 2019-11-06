@@ -1,15 +1,15 @@
-file 16509 1572852380                                           
+file 24215 1572934724                                           
 version 2
-run General-0-20191104-15:26:10-6310
+run General-0-20191105-14:18:28-24759
 attr configname General
-attr datetime 20191104-15:26:10
+attr datetime 20191105-14:18:28
 attr experiment General
 attr inifile 13_example_strict-priority_non-fifo_host3.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TestScenario7
-attr processid 6310
+attr processid 24759
 attr repetition 0
 attr replication #0
 attr resultdir results_strict_priority
@@ -20,7 +20,9 @@ param **.verbose true
 param **.promiscuous true
 param **.registerProtocol true
 param **.*.clock.clockRate "\"1us\""
-param **.robotController.eth.address "\"01-00-00-00-00-01\""
+param **.robotController.numberOfFlow 2
+param **.robotController.flow1[0].eth.address "\"01-00-00-00-00-01\""
+param **.robotController.flow1[1].eth.address "\"01-00-00-00-00-02\""
 param **.roboticArm1.eth.address "\"01-00-00-00-00-04\""
 param **.roboticArm2.eth.address "\"01-00-00-00-00-04\""
 param **.switch*.processingDelay[*].delay 5us
@@ -47,7 +49,8 @@ param **.queues[7].expressQueue true
 param **.queues[*].bufferCapacity 363360b
 param **.switchA.eth[0].mac.enablePreemptingFrames false
 param **.switchA.eth[1].mac.enablePreemptingFrames false
-param **.robotController.trafGenSchedApp*.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.robotController.flow1[0].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.robotController.flow1[1].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
 param **.roboticArm1.trafGenApp.numPacketsPerBurst 0
 param **.roboticArm1.trafGenApp.sendInterval 1ms
 param **.roboticArm1.trafGenApp.packetLength 100B
@@ -319,92 +322,255 @@ attr title "queue length, vector"
 vector 87 TestScenario7.roboticArm2.eth.queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-0	15726 8 0 0 0 0 1 0 0 0 0
-1	15734 8 0 0 0 0 1 0 0 0 0
-2	15742 8 0 0 0 0 1 0 0 0 0
-3	15750 8 0 0 0 0 1 0 0 0 0
-4	15758 8 0 0 0 0 1 0 0 0 0
-5	15766 8 0 0 0 0 1 0 0 0 0
-6	15774 8 0 0 0 0 1 0 0 0 0
-7	15782 8 0 0 0 0 1 0 0 0 0
-8	15790 8 0 0 0 0 1 0 0 0 0
-9	15798 8 0 0 0 0 1 0 0 0 0
-10	15806 9 0 0 0 0 1 0 0 0 0
-11	15815 9 0 0 0 0 1 0 0 0 0
-12	15824 9 0 0 0 0 1 0 0 0 0
-13	15833 9 0 0 0 0 1 0 0 0 0
-14	15842 9 0 0 0 0 1 0 0 0 0
-15	15851 9 0 0 0 0 1 0 0 0 0
-16	15860 9 0 0 0 0 1 0 0 0 0
-17	15869 9 0 0 0 0 1 0 0 0 0
-18	15878 9 0 0 0 0 1 0 0 0 0
-19	15887 9 0 0 0 0 1 0 0 0 0
-20	15896 9 0 0 0 0 1 0 0 0 0
-21	15905 9 0 0 0 0 1 0 0 0 0
-22	15914 9 0 0 0 0 1 0 0 0 0
-23	15923 9 0 0 0 0 1 0 0 0 0
-24	15932 9 0 0 0 0 1 0 0 0 0
-25	15941 9 0 0 0 0 1 0 0 0 0
-26	15950 9 0 0 0 0 1 0 0 0 0
-27	15959 9 0 0 0 0 1 0 0 0 0
-28	15968 9 0 0 0 0 1 0 0 0 0
-29	15977 9 0 0 0 0 1 0 0 0 0
-30	15986 9 0 0 0 0 1 0 0 0 0
-31	15995 9 0 0 0 0 1 0 0 0 0
-32	16004 9 0 0 0 0 1 0 0 0 0
-33	16013 9 0 0 0 0 1 0 0 0 0
-34	16022 9 0 0 0 0 1 0 0 0 0
-35	16031 9 0 0 0 0 1 0 0 0 0
-36	16040 9 0 0 0 0 1 0 0 0 0
-37	16049 9 0 0 0 0 1 0 0 0 0
-38	16058 9 0 0 0 0 1 0 0 0 0
-39	16067 9 0 0 0 0 1 0 0 0 0
-40	16076 9 0 0 0 0 1 0 0 0 0
-41	16085 9 0 0 0 0 1 0 0 0 0
-42	16094 9 0 0 0 0 1 0 0 0 0
-43	16103 9 0 0 0 0 1 0 0 0 0
-44	16112 9 0 0 0 0 1 0 0 0 0
-45	16121 9 0 0 0 0 1 0 0 0 0
-46	16130 9 0 0 0 0 1 0 0 0 0
-47	16139 9 0 0 0 0 1 0 0 0 0
-48	16148 9 0 0 0 0 1 0 0 0 0
-49	16157 9 0 0 0 0 1 0 0 0 0
-50	16166 9 0 0 0 0 1 0 0 0 0
-51	16175 9 0 0 0 0 1 0 0 0 0
-52	16184 9 0 0 0 0 1 0 0 0 0
-53	16193 9 0 0 0 0 1 0 0 0 0
-54	16202 9 0 0 0 0 1 0 0 0 0
-55	16211 9 0 0 0 0 1 0 0 0 0
-56	16220 9 0 0 0 0 1 0 0 0 0
-57	16229 9 0 0 0 0 1 0 0 0 0
-58	16238 9 0 0 0 0 1 0 0 0 0
-59	16247 9 0 0 0 0 1 0 0 0 0
-60	16256 9 0 0 0 0 1 0 0 0 0
-61	16265 9 0 0 0 0 1 0 0 0 0
-62	16274 9 0 0 0 0 1 0 0 0 0
-63	16283 9 0 0 0 0 1 0 0 0 0
-64	16292 9 0 0 0 0 1 0 0 0 0
-65	16301 9 0 0 0 0 1 0 0 0 0
-66	16310 9 0 0 0 0 1 0 0 0 0
-67	16319 9 0 0 0 0 1 0 0 0 0
-68	16328 9 0 0 0 0 1 0 0 0 0
-69	16337 9 0 0 0 0 1 0 0 0 0
-70	16346 9 0 0 0 0 1 0 0 0 0
-71	16355 9 0 0 0 0 1 0 0 0 0
-72	16364 9 0 0 0 0 1 0 0 0 0
-73	16373 9 0 0 0 0 1 0 0 0 0
-74	16382 9 0 0 0 0 1 0 0 0 0
-75	16391 9 0 0 0 0 1 0 0 0 0
-76	16400 9 0 0 0 0 1 0 0 0 0
-77	16409 9 0 0 0 0 1 0 0 0 0
-78	16418 9 0 0 0 0 1 0 0 0 0
-79	16427 9 0 0 0 0 1 0 0 0 0
-80	16436 9 0 0 0 0 1 0 0 0 0
-81	16445 9 0 0 0 0 1 0 0 0 0
-82	16454 9 0 0 0 0 1 0 0 0 0
-83	16463 9 0 0 0 0 1 0 0 0 0
-84	16472 9 0 0 0 0 1 0 0 0 0
-85	16481 9 0 0 0 0 1 0 0 0 0
-86	16490 9 0 0 0 0 1 0 0 0 0
-87	16499 9 0 0 0 0 1 0 0 0 0
+vector 88 TestScenario7.robotController.flow1[0].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 89 TestScenario7.robotController.flow1[1].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 90 TestScenario7.robotController.flow1[0].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 91 TestScenario7.robotController.flow1[1].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 92 TestScenario7.robotController.flow1[0].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 93 TestScenario7.robotController.flow1[1].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 94 TestScenario7.robotController.toHost[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 95 TestScenario7.robotController.toHost[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 96 TestScenario7.robotController.flow1[0].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 97 TestScenario7.robotController.toHost[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 98 TestScenario7.robotController.toHost[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 99 TestScenario7.robotController.flow1[1].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 100 TestScenario7.robotController.toChannel.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 101 TestScenario7.robotController.toChannel.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 102 TestScenario7.switchA.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 103 TestScenario7.switchA.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 104 TestScenario7.switchA.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 105 TestScenario7.switchA.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 106 TestScenario7.switchA.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 107 TestScenario7.switchA.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 108 TestScenario7.switchA.processingDelay[0] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 109 TestScenario7.switchA.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 110 TestScenario7.switchA.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 111 TestScenario7.switchA.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 112 TestScenario7.switchA.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 113 TestScenario7.switchA.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 114 TestScenario7.switchA.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 115 TestScenario7.switchA.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 116 TestScenario7.switchA.eth[1].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 117 TestScenario7.switchA.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 118 TestScenario7.switchA.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 119 TestScenario7.switchA.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 120 TestScenario7.switchA.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 121 TestScenario7.switchA.eth[2].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+0	22353 8 0 0 0 0 1 0 0 0 0
+1	22361 8 0 0 0 0 1 0 0 0 0
+2	22369 8 0 0 0 0 1 0 0 0 0
+3	22377 8 0 0 0 0 1 0 0 0 0
+4	22385 8 0 0 0 0 1 0 0 0 0
+5	22393 8 0 0 0 0 1 0 0 0 0
+6	22401 8 0 0 0 0 1 0 0 0 0
+7	22409 8 0 0 0 0 1 0 0 0 0
+8	22417 8 0 0 0 0 1 0 0 0 0
+9	22425 8 0 0 0 0 1 0 0 0 0
+10	22433 9 0 0 0 0 1 0 0 0 0
+11	22442 9 0 0 0 0 1 0 0 0 0
+12	22451 9 0 0 0 0 1 0 0 0 0
+13	22460 9 0 0 0 0 1 0 0 0 0
+14	22469 9 0 0 0 0 1 0 0 0 0
+15	22478 53 0 166 0 0.0000082512 3 0 1 1 1
+16	22531 9 0 0 0 0 1 0 0 0 0
+17	22540 9 0 0 0 0 1 0 0 0 0
+18	22549 9 0 0 0 0 1 0 0 0 0
+19	22558 9 0 0 0 0 1 0 0 0 0
+20	22567 9 0 0 0 0 1 0 0 0 0
+21	22576 9 0 0 0 0 1 0 0 0 0
+22	22585 9 0 0 0 0 1 0 0 0 0
+23	22594 53 0 176 0 0.0000082512 3 0 1 1 1
+24	22647 9 0 0 0 0 1 0 0 0 0
+25	22656 9 0 0 0 0 1 0 0 0 0
+26	22665 9 0 0 0 0 1 0 0 0 0
+27	22674 9 0 0 0 0 1 0 0 0 0
+28	22683 9 0 0 0 0 1 0 0 0 0
+29	22692 9 0 0 0 0 1 0 0 0 0
+30	22701 9 0 0 0 0 1 0 0 0 0
+31	22710 9 0 0 0 0 1 0 0 0 0
+32	22719 9 0 0 0 0 1 0 0 0 0
+33	22728 9 0 0 0 0 1 0 0 0 0
+34	22737 9 0 0 0 0 1 0 0 0 0
+35	22746 9 0 0 0 0 1 0 0 0 0
+36	22755 9 0 0 0 0 1 0 0 0 0
+37	22764 9 0 0 0 0 1 0 0 0 0
+38	22773 9 0 0 0 0 1 0 0 0 0
+39	22782 9 0 0 0 0 1 0 0 0 0
+40	22791 9 0 0 0 0 1 0 0 0 0
+41	22800 9 0 0 0 0 1 0 0 0 0
+42	22809 9 0 0 0 0 1 0 0 0 0
+43	22818 9 0 0 0 0 1 0 0 0 0
+44	22827 9 0 0 0 0 1 0 0 0 0
+45	22836 9 0 0 0 0 1 0 0 0 0
+46	22845 9 0 0 0 0 1 0 0 0 0
+47	22854 9 0 0 0 0 1 0 0 0 0
+48	22863 9 0 0 0 0 1 0 0 0 0
+49	22872 9 0 0 0 0 1 0 0 0 0
+50	22881 9 0 0 0 0 1 0 0 0 0
+51	22890 9 0 0 0 0 1 0 0 0 0
+52	22899 9 0 0 0 0 1 0 0 0 0
+53	22908 9 0 0 0 0 1 0 0 0 0
+54	22917 9 0 0 0 0 1 0 0 0 0
+55	22926 9 0 0 0 0 1 0 0 0 0
+56	22935 9 0 0 0 0 1 0 0 0 0
+57	22944 9 0 0 0 0 1 0 0 0 0
+58	22953 9 0 0 0 0 1 0 0 0 0
+59	22962 9 0 0 0 0 1 0 0 0 0
+60	22971 9 0 0 0 0 1 0 0 0 0
+61	22980 9 0 0 0 0 1 0 0 0 0
+62	22989 9 0 0 0 0 1 0 0 0 0
+63	22998 9 0 0 0 0 1 0 0 0 0
+64	23007 9 0 0 0 0 1 0 0 0 0
+65	23016 9 0 0 0 0 1 0 0 0 0
+66	23025 9 0 0 0 0 1 0 0 0 0
+67	23034 9 0 0 0 0 1 0 0 0 0
+68	23043 9 0 0 0 0 1 0 0 0 0
+69	23052 9 0 0 0 0 1 0 0 0 0
+70	23061 9 0 0 0 0 1 0 0 0 0
+71	23070 9 0 0 0 0 1 0 0 0 0
+72	23079 9 0 0 0 0 1 0 0 0 0
+73	23088 9 0 0 0 0 1 0 0 0 0
+74	23097 9 0 0 0 0 1 0 0 0 0
+75	23106 9 0 0 0 0 1 0 0 0 0
+76	23115 9 0 0 0 0 1 0 0 0 0
+77	23124 9 0 0 0 0 1 0 0 0 0
+78	23133 9 0 0 0 0 1 0 0 0 0
+79	23142 9 0 0 0 0 1 0 0 0 0
+80	23151 9 0 0 0 0 1 0 0 0 0
+81	23160 9 0 0 0 0 1 0 0 0 0
+82	23169 9 0 0 0 0 1 0 0 0 0
+83	23178 9 0 0 0 0 1 0 0 0 0
+84	23187 9 0 0 0 0 1 0 0 0 0
+85	23196 9 0 0 0 0 1 0 0 0 0
+86	23205 9 0 0 0 0 1 0 0 0 0
+87	23214 9 0 0 0 0 1 0 0 0 0
+88	23223 12 98 98 0 0 1 364 364 364 132496
+89	23235 12 99 99 0 0 1 364 364 364 132496
+90	23247 13 100 100 0 0 1 364 364 364 132496
+91	23260 13 101 101 0 0 1 364 364 364 132496
+92	23273 13 102 102 0 0 1 382 382 382 145924
+93	23286 13 103 103 0 0 1 382 382 382 145924
+94	23299 24 115 115 0.0000000312 0.0000000312 1 382 382 382 145924
+95	23323 24 115 115 0.0000000312 0.0000000312 1 382 382 382 145924
+96	23347 24 116 116 0.0000000312 0.0000000312 1 382 382 382 145924
+97	23371 24 117 117 0.0000000312 0.0000000312 1 382 382 382 145924
+98	23395 24 117 117 0.0000000312 0.0000000312 1 382 382 382 145924
+99	23419 24 118 118 0.0000000312 0.0000000312 1 382 382 382 145924
+100	23443 50 121 122 0.0000000312 0.0000000312 2 382 382 764 291848
+101	23493 50 125 135 0.0000031512 0.0000063672 2 382 382 764 291848
+102	23543 50 127 137 0.0000032512 0.0000064672 2 390 390 780 304200
+103	23593 50 127 137 0.0000032512 0.0000064672 2 382 382 764 291848
+104	23643 50 127 137 0.0000032512 0.0000064672 2 382 382 764 291848
+105	23693 50 128 138 0.0000032512 0.0000064672 2 364 364 728 264992
+106	23743 50 129 139 0.0000032512 0.0000064672 2 360 360 720 259200
+107	23793 50 134 144 0.0000032512 0.0000064672 2 354 354 708 250632
+108	23843 54 134 144 0.0000032512 0.0000064672 2 5e-06 5e-06 1e-05 5e-11
+109	23897 25 145 145 0.0000082512 0.0000082512 1 354 354 354 125316
+110	23922 25 157 157 0.0000082512 0.0000082512 1 360 360 360 129600
+111	23947 25 158 158 0.0000082512 0.0000082512 1 360 360 360 129600
+112	23972 23 166 166 0.0000082512 0.0000082512 1 0 0 0 0
+113	23995 25 170 170 0.0000082512 0.0000082512 1 364 364 364 132496
+114	24020 25 171 171 0.0000082512 0.0000082512 1 364 364 364 132496
+115	24045 25 172 172 0.0000082512 0.0000082512 1 382 382 382 145924
+116	24070 23 172 172 0.0000082512 0.0000082512 1 0 0 0 0
+117	24093 23 176 176 0.0000082512 0.0000082512 1 0 0 0 0
+118	24116 25 180 180 0.0000082512 0.0000082512 1 364 364 364 132496
+119	24141 25 181 181 0.0000082512 0.0000082512 1 364 364 364 132496
+120	24166 25 182 182 0.0000082512 0.0000082512 1 382 382 382 145924
+121	24191 23 182 182 0.0000082512 0.0000082512 1 0 0 0 0
 
