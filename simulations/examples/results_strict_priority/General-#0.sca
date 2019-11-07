@@ -1,14 +1,14 @@
 version 2
-run General-0-20191107-00:50:54-37306
+run General-0-20191107-02:10:56-39645
 attr configname General
-attr datetime 20191107-00:50:54
+attr datetime 20191107-02:10:56
 attr experiment General
 attr inifile 14_example_strict-priority_non-fifo_host4.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network TestScenario8
-attr processid 37306
+attr processid 39645
 attr repetition 0
 attr replication #0
 attr resultdir results_strict_priority
@@ -23,8 +23,8 @@ param **.robotController1.numberOfFlow 2
 param **.robotController2.numberOfFlow 1
 param **.switch*.processingDelay[*].delay 5us
 param **.filteringDatabase.database "xmldoc(\"xml/routes/TestScenario8/routes_flat.xml\", \"/filteringDatabases/\")"
-param **.filteringDatabase.cycle "xmldoc(\"xml/schedules/TestScenario8/switches/switches_flat.xml\", \"/schedule/\")"
-param **.gateController.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/switches/switches_flat.xml\")"
+param **.filteringDatabase.cycle "xmldoc(\"xml/schedules/TestScenario8/switches/GCLs_flat.xml\", \"/schedule/\")"
+param **.gateController.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/switches/GCLs_flat.xml\")"
 param **.gateController.enableHoldAndRelease false
 param **.switch*.eth[*].queuing.tsAlgorithms[0].typename "\"StrictPriority\""
 param **.switch*.eth[*].queuing.tsAlgorithms[1].typename "\"StrictPriority\""
@@ -55,12 +55,12 @@ param **.roboticArm2.trafGenApp.numPacketsPerBurst 0
 param **.roboticArm2.trafGenApp.sendInterval 1ms
 param **.roboticArm2.trafGenApp.packetLength 100B
 
-scalar TestScenario8.switchA.eth[0].mac "simulated time" 0.0003
+scalar TestScenario8.switchA.eth[0].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchA.eth[0].mac full-duplex 1
-scalar TestScenario8.switchA.eth[0].mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.switchA.eth[0].mac "frames/sec rcvd" 6666.6666666667
-scalar TestScenario8.switchA.eth[0].mac "bits/sec sent" 3413333.3333333
-scalar TestScenario8.switchA.eth[0].mac "bits/sec rcvd" 5493333.3333333
+scalar TestScenario8.switchA.eth[0].mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.switchA.eth[0].mac "frames/sec rcvd" 5121.0319172086
+scalar TestScenario8.switchA.eth[0].mac "bits/sec sent" 2558017.8942545
+scalar TestScenario8.switchA.eth[0].mac "bits/sec rcvd" 4244710.9432785
 scalar TestScenario8.switchA.eth[0].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchA.eth[0].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchA.eth[0].mac pMacDelay:histogram
@@ -77,9 +77,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchA.eth[0].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -112,7 +112,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -162,7 +162,7 @@ scalar TestScenario8.switchA.eth[0].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchA.eth[0].mac expressFrames:count 1
+scalar TestScenario8.switchA.eth[0].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -182,35 +182,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchA.eth[0].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchA.eth[0].mac rxPkOk:count 2
+scalar TestScenario8.switchA.eth[0].mac rxPkOk:count 41
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchA.eth[0].mac rxPkOk:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[0].mac rxPkOk:sum(packetBytes) 4248
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].mac txPk:count 1
+scalar TestScenario8.switchA.eth[0].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchA.eth[0].mac txPk:sum(packetBytes) 128
+scalar TestScenario8.switchA.eth[0].mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchA.eth[0].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchA.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.switchA.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].mac passedUpPk:count 2
+scalar TestScenario8.switchA.eth[0].mac passedUpPk:count 41
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchA.eth[0].mac passedUpPk:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[0].mac passedUpPk:sum(packetBytes) 4248
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -477,16 +477,16 @@ scalar TestScenario8.switchA.eth[0].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchA.eth[0].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchA.eth[0].queuing.queues[7] rcvdPk:sum(packetBytes) 106
+scalar TestScenario8.switchA.eth[0].queuing.queues[7] rcvdPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchA.eth[0].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -519,7 +519,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -551,19 +551,19 @@ attr title "queue length, max"
 scalar TestScenario8.switchA.eth[0].queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchA.eth[0].vlanEncapE decapPk:count 2
+scalar TestScenario8.switchA.eth[0].vlanEncapE decapPk:count 41
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchA.eth[0].vlanEncapE decapPk:sum(packetBytes) 162
+scalar TestScenario8.switchA.eth[0].vlanEncapE decapPk:sum(packetBytes) 3346
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchA.eth[0].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[0].vlanEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchA.eth[0].vlanEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -571,19 +571,19 @@ scalar TestScenario8.switchA.eth[0].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchA.eth[0].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchA.eth[0].etherEncapE decapPk:count 2
+scalar TestScenario8.switchA.eth[0].etherEncapE decapPk:count 41
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchA.eth[0].etherEncapE decapPk:sum(packetBytes) 170
+scalar TestScenario8.switchA.eth[0].etherEncapE decapPk:sum(packetBytes) 3510
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[0].etherEncapE encapPk:count 1
+scalar TestScenario8.switchA.eth[0].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[0].etherEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchA.eth[0].etherEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -623,11 +623,11 @@ scalar TestScenario8.switchA.eth[0].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].mac "simulated time" 0.0003
+scalar TestScenario8.switchA.eth[1].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchA.eth[1].mac full-duplex 1
-scalar TestScenario8.switchA.eth[1].mac "frames/sec sent" 6666.6666666667
+scalar TestScenario8.switchA.eth[1].mac "frames/sec sent" 4996.1286997157
 scalar TestScenario8.switchA.eth[1].mac "frames/sec rcvd" 0
-scalar TestScenario8.switchA.eth[1].mac "bits/sec sent" 5493333.3333333
+scalar TestScenario8.switchA.eth[1].mac "bits/sec sent" 4116810.0485658
 scalar TestScenario8.switchA.eth[1].mac "bits/sec rcvd" 0
 scalar TestScenario8.switchA.eth[1].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchA.eth[1].mac "rx channel utilization (%)" 0
@@ -645,7 +645,7 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchA.eth[1].mac eMacDelay:histogram
-field count 2
+field count 40
 field mean 0
 field stddev 0
 field min 0
@@ -680,7 +680,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	2
+bin	0	40
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -730,7 +730,7 @@ scalar TestScenario8.switchA.eth[1].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchA.eth[1].mac expressFrames:count 2
+scalar TestScenario8.switchA.eth[1].mac expressFrames:count 40
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -758,19 +758,19 @@ scalar TestScenario8.switchA.eth[1].mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].mac txPk:count 2
+scalar TestScenario8.switchA.eth[1].mac txPk:count 40
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchA.eth[1].mac txPk:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[1].mac txPk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].mac packetReceivedFromUpper:count 2
+scalar TestScenario8.switchA.eth[1].mac packetReceivedFromUpper:count 40
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchA.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -1045,24 +1045,24 @@ scalar TestScenario8.switchA.eth[1].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].queuing.queues[7] rcvdPk:count 2
+scalar TestScenario8.switchA.eth[1].queuing.queues[7] rcvdPk:count 41
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchA.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 162
+scalar TestScenario8.switchA.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 3346
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchA.eth[1].queuing.queues[7] queueingTime:histogram
-field count 2
-field mean 2.210256e-05
-field stddev 3.1257740115165e-05
+field count 41
+field mean 2.1563473170732e-05
+field stddev 2.2370479600194e-05
 field min 0
 field max 4.420512e-05
-field sum 4.420512e-05
-field sqrsum 1.9540926342144e-09
+field sum 0.0008841024
+field sqrsum 3.9081852684288e-08
 attr interpolationmode none
 attr title "queueing time, histogram"
 bin	-inf	0
-bin	0	1
+bin	0	21
 bin	1e-06	0
 bin	2e-06	0
 bin	3e-06	0
@@ -1106,7 +1106,7 @@ bin	4e-05	0
 bin	4.1e-05	0
 bin	4.2e-05	0
 bin	4.3e-05	0
-bin	4.4e-05	1
+bin	4.4e-05	20
 bin	4.5e-05	0
 bin	4.6e-05	0
 bin	4.7e-05	0
@@ -1122,7 +1122,7 @@ bin	5.6e-05	0
 scalar TestScenario8.switchA.eth[1].queuing.queues[7] queueLength:max 1
 attr interpolationmode sample-hold
 attr title "queue length, max"
-scalar TestScenario8.switchA.eth[1].queuing.queues[7] queueLength:timeavg 0.1473504
+scalar TestScenario8.switchA.eth[1].queuing.queues[7] queueLength:timeavg 0.11042723435319
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
 scalar TestScenario8.switchA.eth[1].vlanEncapE decapPk:count 0
@@ -1133,11 +1133,11 @@ scalar TestScenario8.switchA.eth[1].vlanEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].vlanEncapE encapPk:count 2
+scalar TestScenario8.switchA.eth[1].vlanEncapE encapPk:count 40
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[1].vlanEncapE encapPk:sum(packetBytes) 170
+scalar TestScenario8.switchA.eth[1].vlanEncapE encapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -1153,11 +1153,11 @@ scalar TestScenario8.switchA.eth[1].etherEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[1].etherEncapE encapPk:count 2
+scalar TestScenario8.switchA.eth[1].etherEncapE encapPk:count 40
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[1].etherEncapE encapPk:sum(packetBytes) 170
+scalar TestScenario8.switchA.eth[1].etherEncapE encapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -1197,12 +1197,12 @@ scalar TestScenario8.switchA.eth[1].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].mac "simulated time" 0.0003
+scalar TestScenario8.switchA.eth[2].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchA.eth[2].mac full-duplex 1
-scalar TestScenario8.switchA.eth[2].mac "frames/sec sent" 6666.6666666667
-scalar TestScenario8.switchA.eth[2].mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.switchA.eth[2].mac "bits/sec sent" 5493333.3333333
-scalar TestScenario8.switchA.eth[2].mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.switchA.eth[2].mac "frames/sec sent" 4996.1286997157
+scalar TestScenario8.switchA.eth[2].mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.switchA.eth[2].mac "bits/sec sent" 4116810.0485658
+scalar TestScenario8.switchA.eth[2].mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.switchA.eth[2].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchA.eth[2].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchA.eth[2].mac pMacDelay:histogram
@@ -1219,7 +1219,7 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchA.eth[2].mac eMacDelay:histogram
-field count 2
+field count 40
 field mean 0
 field stddev 0
 field min 0
@@ -1254,7 +1254,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	2
+bin	0	40
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -1304,7 +1304,7 @@ scalar TestScenario8.switchA.eth[2].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchA.eth[2].mac expressFrames:count 2
+scalar TestScenario8.switchA.eth[2].mac expressFrames:count 40
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -1324,35 +1324,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchA.eth[2].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchA.eth[2].mac rxPkOk:count 1
+scalar TestScenario8.switchA.eth[2].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchA.eth[2].mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.switchA.eth[2].mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].mac txPk:count 2
+scalar TestScenario8.switchA.eth[2].mac txPk:count 40
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchA.eth[2].mac txPk:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[2].mac txPk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].mac packetReceivedFromUpper:count 2
+scalar TestScenario8.switchA.eth[2].mac packetReceivedFromUpper:count 40
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchA.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 206
+scalar TestScenario8.switchA.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].mac passedUpPk:count 1
+scalar TestScenario8.switchA.eth[2].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchA.eth[2].mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.switchA.eth[2].mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -1619,24 +1619,24 @@ scalar TestScenario8.switchA.eth[2].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].queuing.queues[7] rcvdPk:count 2
+scalar TestScenario8.switchA.eth[2].queuing.queues[7] rcvdPk:count 41
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchA.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 162
+scalar TestScenario8.switchA.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 3346
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchA.eth[2].queuing.queues[7] queueingTime:histogram
-field count 2
+field count 40
 field mean 2.210256e-05
-field stddev 3.1257740115165e-05
+field stddev 2.2384132625329e-05
 field min 0
 field max 4.420512e-05
-field sum 4.420512e-05
-field sqrsum 1.9540926342144e-09
+field sum 0.0008841024
+field sqrsum 3.9081852684288e-08
 attr interpolationmode none
 attr title "queueing time, histogram"
 bin	-inf	0
-bin	0	1
+bin	0	20
 bin	1e-06	0
 bin	2e-06	0
 bin	3e-06	0
@@ -1680,7 +1680,7 @@ bin	4e-05	0
 bin	4.1e-05	0
 bin	4.2e-05	0
 bin	4.3e-05	0
-bin	4.4e-05	1
+bin	4.4e-05	20
 bin	4.5e-05	0
 bin	4.6e-05	0
 bin	4.7e-05	0
@@ -1696,22 +1696,22 @@ bin	5.6e-05	0
 scalar TestScenario8.switchA.eth[2].queuing.queues[7] queueLength:max 1
 attr interpolationmode sample-hold
 attr title "queue length, max"
-scalar TestScenario8.switchA.eth[2].queuing.queues[7] queueLength:timeavg 0.1473504
+scalar TestScenario8.switchA.eth[2].queuing.queues[7] queueLength:timeavg 0.11042723435319
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchA.eth[2].vlanEncapE decapPk:count 1
+scalar TestScenario8.switchA.eth[2].vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchA.eth[2].vlanEncapE decapPk:sum(packetBytes) 106
+scalar TestScenario8.switchA.eth[2].vlanEncapE decapPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].vlanEncapE encapPk:count 2
+scalar TestScenario8.switchA.eth[2].vlanEncapE encapPk:count 40
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[2].vlanEncapE encapPk:sum(packetBytes) 170
+scalar TestScenario8.switchA.eth[2].vlanEncapE encapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -1719,19 +1719,19 @@ scalar TestScenario8.switchA.eth[2].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchA.eth[2].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchA.eth[2].etherEncapE decapPk:count 1
+scalar TestScenario8.switchA.eth[2].etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchA.eth[2].etherEncapE decapPk:sum(packetBytes) 110
+scalar TestScenario8.switchA.eth[2].etherEncapE decapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchA.eth[2].etherEncapE encapPk:count 2
+scalar TestScenario8.switchA.eth[2].etherEncapE encapPk:count 40
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchA.eth[2].etherEncapE encapPk:sum(packetBytes) 170
+scalar TestScenario8.switchA.eth[2].etherEncapE encapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -1772,29 +1772,29 @@ attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
 statistic TestScenario8.switchA.processingDelay[0] delay:stats
-field count 2
+field count 41
 field mean 5e-06
 field stddev 0
 field min 5e-06
 field max 5e-06
-field sum 1e-05
-field sqrsum 5e-11
+field sum 0.000205
+field sqrsum 1.025e-09
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchA.processingDelay[0] packetReceived:count 2
+scalar TestScenario8.switchA.processingDelay[0] packetReceived:count 41
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchA.processingDelay[0] packetReceived:sum(packetBytes) 150
+scalar TestScenario8.switchA.processingDelay[0] packetReceived:sum(packetBytes) 3100
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchA.processingDelay[0] packetSent:count 2
+scalar TestScenario8.switchA.processingDelay[0] packetSent:count 41
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchA.processingDelay[0] packetSent:sum(packetBytes) 150
+scalar TestScenario8.switchA.processingDelay[0] packetSent:sum(packetBytes) 3100
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
@@ -1826,38 +1826,38 @@ attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
 statistic TestScenario8.switchA.processingDelay[2] delay:stats
-field count 1
+field count 20
 field mean 5e-06
-field stddev -nan
+field stddev 1.0432619722931e-13
 field min 5e-06
 field max 5e-06
-field sum 5e-06
-field sqrsum 2.5e-11
+field sum 0.0001
+field sqrsum 5e-10
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchA.processingDelay[2] packetReceived:count 1
+scalar TestScenario8.switchA.processingDelay[2] packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchA.processingDelay[2] packetReceived:sum(packetBytes) 100
+scalar TestScenario8.switchA.processingDelay[2] packetReceived:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchA.processingDelay[2] packetSent:count 1
+scalar TestScenario8.switchA.processingDelay[2] packetSent:count 20
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchA.processingDelay[2] packetSent:sum(packetBytes) 100
+scalar TestScenario8.switchA.processingDelay[2] packetSent:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[0].mac "simulated time" 0.0003
+scalar TestScenario8.switchB.eth[0].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchB.eth[0].mac full-duplex 1
 scalar TestScenario8.switchB.eth[0].mac "frames/sec sent" 0
-scalar TestScenario8.switchB.eth[0].mac "frames/sec rcvd" 6666.6666666667
+scalar TestScenario8.switchB.eth[0].mac "frames/sec rcvd" 4996.1286997157
 scalar TestScenario8.switchB.eth[0].mac "bits/sec sent" 0
-scalar TestScenario8.switchB.eth[0].mac "bits/sec rcvd" 5493333.3333333
+scalar TestScenario8.switchB.eth[0].mac "bits/sec rcvd" 4116810.0485658
 scalar TestScenario8.switchB.eth[0].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchB.eth[0].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchB.eth[0].mac pMacDelay:histogram
@@ -1930,11 +1930,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchB.eth[0].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchB.eth[0].mac rxPkOk:count 2
+scalar TestScenario8.switchB.eth[0].mac rxPkOk:count 40
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchB.eth[0].mac rxPkOk:sum(packetBytes) 206
+scalar TestScenario8.switchB.eth[0].mac rxPkOk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -1954,11 +1954,11 @@ scalar TestScenario8.switchB.eth[0].mac packetReceivedFromUpper:sum(packetBytes)
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[0].mac passedUpPk:count 2
+scalar TestScenario8.switchB.eth[0].mac passedUpPk:count 40
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchB.eth[0].mac passedUpPk:sum(packetBytes) 206
+scalar TestScenario8.switchB.eth[0].mac passedUpPk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -2250,11 +2250,11 @@ attr title "queue length, max"
 scalar TestScenario8.switchB.eth[0].queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchB.eth[0].vlanEncapE decapPk:count 2
+scalar TestScenario8.switchB.eth[0].vlanEncapE decapPk:count 40
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchB.eth[0].vlanEncapE decapPk:sum(packetBytes) 162
+scalar TestScenario8.switchB.eth[0].vlanEncapE decapPk:sum(packetBytes) 3240
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
@@ -2270,11 +2270,11 @@ scalar TestScenario8.switchB.eth[0].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchB.eth[0].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchB.eth[0].etherEncapE decapPk:count 2
+scalar TestScenario8.switchB.eth[0].etherEncapE decapPk:count 40
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchB.eth[0].etherEncapE decapPk:sum(packetBytes) 170
+scalar TestScenario8.switchB.eth[0].etherEncapE decapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
@@ -2322,12 +2322,12 @@ scalar TestScenario8.switchB.eth[0].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].mac "simulated time" 0.0003
+scalar TestScenario8.switchB.eth[1].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchB.eth[1].mac full-duplex 1
-scalar TestScenario8.switchB.eth[1].mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.switchB.eth[1].mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.switchB.eth[1].mac "bits/sec sent" 2080000
-scalar TestScenario8.switchB.eth[1].mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.switchB.eth[1].mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.switchB.eth[1].mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.switchB.eth[1].mac "bits/sec sent" 1558792.1543113
+scalar TestScenario8.switchB.eth[1].mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.switchB.eth[1].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchB.eth[1].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchB.eth[1].mac pMacDelay:histogram
@@ -2344,9 +2344,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchB.eth[1].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -2379,7 +2379,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2429,7 +2429,7 @@ scalar TestScenario8.switchB.eth[1].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchB.eth[1].mac expressFrames:count 1
+scalar TestScenario8.switchB.eth[1].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -2449,35 +2449,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchB.eth[1].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchB.eth[1].mac rxPkOk:count 1
+scalar TestScenario8.switchB.eth[1].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchB.eth[1].mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[1].mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].mac txPk:count 1
+scalar TestScenario8.switchB.eth[1].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchB.eth[1].mac txPk:sum(packetBytes) 78
+scalar TestScenario8.switchB.eth[1].mac txPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchB.eth[1].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchB.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 78
+scalar TestScenario8.switchB.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].mac passedUpPk:count 1
+scalar TestScenario8.switchB.eth[1].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchB.eth[1].mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[1].mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -2744,16 +2744,16 @@ scalar TestScenario8.switchB.eth[1].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchB.eth[1].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchB.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 56
+scalar TestScenario8.switchB.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 1120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchB.eth[1].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -2786,7 +2786,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2818,19 +2818,19 @@ attr title "queue length, max"
 scalar TestScenario8.switchB.eth[1].queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchB.eth[1].vlanEncapE decapPk:count 1
+scalar TestScenario8.switchB.eth[1].vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchB.eth[1].vlanEncapE decapPk:sum(packetBytes) 106
+scalar TestScenario8.switchB.eth[1].vlanEncapE decapPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[1].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[1].vlanEncapE encapPk:sum(packetBytes) 60
+scalar TestScenario8.switchB.eth[1].vlanEncapE encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -2838,19 +2838,19 @@ scalar TestScenario8.switchB.eth[1].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchB.eth[1].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchB.eth[1].etherEncapE decapPk:count 1
+scalar TestScenario8.switchB.eth[1].etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchB.eth[1].etherEncapE decapPk:sum(packetBytes) 110
+scalar TestScenario8.switchB.eth[1].etherEncapE decapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[1].etherEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[1].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[1].etherEncapE encapPk:sum(packetBytes) 60
+scalar TestScenario8.switchB.eth[1].etherEncapE encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -2890,11 +2890,11 @@ scalar TestScenario8.switchB.eth[1].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].mac "simulated time" 0.0003
+scalar TestScenario8.switchB.eth[2].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchB.eth[2].mac full-duplex 1
-scalar TestScenario8.switchB.eth[2].mac "frames/sec sent" 3333.3333333333
+scalar TestScenario8.switchB.eth[2].mac "frames/sec sent" 2498.0643498579
 scalar TestScenario8.switchB.eth[2].mac "frames/sec rcvd" 0
-scalar TestScenario8.switchB.eth[2].mac "bits/sec sent" 3413333.3333333
+scalar TestScenario8.switchB.eth[2].mac "bits/sec sent" 2558017.8942545
 scalar TestScenario8.switchB.eth[2].mac "bits/sec rcvd" 0
 scalar TestScenario8.switchB.eth[2].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchB.eth[2].mac "rx channel utilization (%)" 0
@@ -2912,9 +2912,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchB.eth[2].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -2947,7 +2947,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -2997,7 +2997,7 @@ scalar TestScenario8.switchB.eth[2].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchB.eth[2].mac expressFrames:count 1
+scalar TestScenario8.switchB.eth[2].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -3025,19 +3025,19 @@ scalar TestScenario8.switchB.eth[2].mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].mac txPk:count 1
+scalar TestScenario8.switchB.eth[2].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchB.eth[2].mac txPk:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[2].mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchB.eth[2].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchB.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -3312,16 +3312,16 @@ scalar TestScenario8.switchB.eth[2].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchB.eth[2].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchB.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 106
+scalar TestScenario8.switchB.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchB.eth[2].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -3354,7 +3354,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -3394,11 +3394,11 @@ scalar TestScenario8.switchB.eth[2].vlanEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[2].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[2].vlanEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchB.eth[2].vlanEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -3414,11 +3414,11 @@ scalar TestScenario8.switchB.eth[2].etherEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[2].etherEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[2].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[2].etherEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchB.eth[2].etherEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -3458,11 +3458,11 @@ scalar TestScenario8.switchB.eth[2].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].mac "simulated time" 0.0003
+scalar TestScenario8.switchB.eth[3].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchB.eth[3].mac full-duplex 1
-scalar TestScenario8.switchB.eth[3].mac "frames/sec sent" 3333.3333333333
+scalar TestScenario8.switchB.eth[3].mac "frames/sec sent" 2498.0643498579
 scalar TestScenario8.switchB.eth[3].mac "frames/sec rcvd" 0
-scalar TestScenario8.switchB.eth[3].mac "bits/sec sent" 3413333.3333333
+scalar TestScenario8.switchB.eth[3].mac "bits/sec sent" 2558017.8942545
 scalar TestScenario8.switchB.eth[3].mac "bits/sec rcvd" 0
 scalar TestScenario8.switchB.eth[3].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchB.eth[3].mac "rx channel utilization (%)" 0
@@ -3480,9 +3480,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchB.eth[3].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -3515,7 +3515,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -3565,7 +3565,7 @@ scalar TestScenario8.switchB.eth[3].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchB.eth[3].mac expressFrames:count 1
+scalar TestScenario8.switchB.eth[3].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -3593,19 +3593,19 @@ scalar TestScenario8.switchB.eth[3].mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].mac txPk:count 1
+scalar TestScenario8.switchB.eth[3].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchB.eth[3].mac txPk:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[3].mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchB.eth[3].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchB.eth[3].mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.switchB.eth[3].mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -3880,16 +3880,16 @@ scalar TestScenario8.switchB.eth[3].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchB.eth[3].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchB.eth[3].queuing.queues[7] rcvdPk:sum(packetBytes) 106
+scalar TestScenario8.switchB.eth[3].queuing.queues[7] rcvdPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchB.eth[3].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -3922,7 +3922,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -3962,11 +3962,11 @@ scalar TestScenario8.switchB.eth[3].vlanEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[3].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[3].vlanEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchB.eth[3].vlanEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -3982,11 +3982,11 @@ scalar TestScenario8.switchB.eth[3].etherEncapE decapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchB.eth[3].etherEncapE encapPk:count 1
+scalar TestScenario8.switchB.eth[3].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchB.eth[3].etherEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchB.eth[3].etherEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -4027,56 +4027,56 @@ attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
 statistic TestScenario8.switchB.processingDelay[0] delay:stats
-field count 2
+field count 40
 field mean 5e-06
 field stddev 0
 field min 5e-06
 field max 5e-06
-field sum 1e-05
-field sqrsum 5e-11
+field sum 0.0002
+field sqrsum 1e-09
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchB.processingDelay[0] packetReceived:count 2
+scalar TestScenario8.switchB.processingDelay[0] packetReceived:count 40
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchB.processingDelay[0] packetReceived:sum(packetBytes) 150
+scalar TestScenario8.switchB.processingDelay[0] packetReceived:sum(packetBytes) 3000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchB.processingDelay[0] packetSent:count 2
+scalar TestScenario8.switchB.processingDelay[0] packetSent:count 40
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchB.processingDelay[0] packetSent:sum(packetBytes) 150
+scalar TestScenario8.switchB.processingDelay[0] packetSent:sum(packetBytes) 3000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
 statistic TestScenario8.switchB.processingDelay[1] delay:stats
-field count 1
+field count 20
 field mean 5e-06
-field stddev -nan
+field stddev 1.0432619722931e-13
 field min 5e-06
 field max 5e-06
-field sum 5e-06
-field sqrsum 2.5e-11
+field sum 0.0001
+field sqrsum 5e-10
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchB.processingDelay[1] packetReceived:count 1
+scalar TestScenario8.switchB.processingDelay[1] packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchB.processingDelay[1] packetReceived:sum(packetBytes) 100
+scalar TestScenario8.switchB.processingDelay[1] packetReceived:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchB.processingDelay[1] packetSent:count 1
+scalar TestScenario8.switchB.processingDelay[1] packetSent:count 20
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchB.processingDelay[1] packetSent:sum(packetBytes) 100
+scalar TestScenario8.switchB.processingDelay[1] packetSent:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
@@ -4134,12 +4134,12 @@ scalar TestScenario8.switchB.processingDelay[3] packetSent:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].mac "simulated time" 0.0003
+scalar TestScenario8.switchC.eth[0].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchC.eth[0].mac full-duplex 1
-scalar TestScenario8.switchC.eth[0].mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.switchC.eth[0].mac "frames/sec rcvd" 6666.6666666667
-scalar TestScenario8.switchC.eth[0].mac "bits/sec sent" 3413333.3333333
-scalar TestScenario8.switchC.eth[0].mac "bits/sec rcvd" 5493333.3333333
+scalar TestScenario8.switchC.eth[0].mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.switchC.eth[0].mac "frames/sec rcvd" 4996.1286997157
+scalar TestScenario8.switchC.eth[0].mac "bits/sec sent" 2558017.8942545
+scalar TestScenario8.switchC.eth[0].mac "bits/sec rcvd" 4116810.0485658
 scalar TestScenario8.switchC.eth[0].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchC.eth[0].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchC.eth[0].mac pMacDelay:histogram
@@ -4156,9 +4156,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchC.eth[0].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -4191,7 +4191,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -4241,7 +4241,7 @@ scalar TestScenario8.switchC.eth[0].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchC.eth[0].mac expressFrames:count 1
+scalar TestScenario8.switchC.eth[0].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -4261,35 +4261,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchC.eth[0].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchC.eth[0].mac rxPkOk:count 2
+scalar TestScenario8.switchC.eth[0].mac rxPkOk:count 40
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchC.eth[0].mac rxPkOk:sum(packetBytes) 206
+scalar TestScenario8.switchC.eth[0].mac rxPkOk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].mac txPk:count 1
+scalar TestScenario8.switchC.eth[0].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchC.eth[0].mac txPk:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[0].mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchC.eth[0].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchC.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].mac passedUpPk:count 2
+scalar TestScenario8.switchC.eth[0].mac passedUpPk:count 40
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchC.eth[0].mac passedUpPk:sum(packetBytes) 206
+scalar TestScenario8.switchC.eth[0].mac passedUpPk:sum(packetBytes) 4120
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -4556,24 +4556,24 @@ scalar TestScenario8.switchC.eth[0].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchC.eth[0].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchC.eth[0].queuing.queues[7] rcvdPk:sum(packetBytes) 106
+scalar TestScenario8.switchC.eth[0].queuing.queues[7] rcvdPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchC.eth[0].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0.00014380112
-field stddev -nan
+field stddev 0
 field min 0.00014380112
 field max 0.00014380112
-field sum 0.00014380112
-field sqrsum 2.0678762113254e-08
+field sum 0.0028760224
+field sqrsum 4.1357524226509e-07
 attr interpolationmode none
 attr title "queueing time, histogram"
 bin	-inf	0
-bin	0	1
+bin	0	20
 bin	0.01	0
 bin	0.02	0
 bin	0.03	0
@@ -4628,22 +4628,22 @@ bin	0.51	0
 scalar TestScenario8.switchC.eth[0].queuing.queues[7] queueLength:max 1
 attr interpolationmode sample-hold
 attr title "queue length, max"
-scalar TestScenario8.switchC.eth[0].queuing.queues[7] queueLength:timeavg 0.47933706666667
+scalar TestScenario8.switchC.eth[0].queuing.queues[7] queueLength:timeavg 0.35922445134163
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchC.eth[0].vlanEncapE decapPk:count 2
+scalar TestScenario8.switchC.eth[0].vlanEncapE decapPk:count 40
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[0].vlanEncapE decapPk:sum(packetBytes) 162
+scalar TestScenario8.switchC.eth[0].vlanEncapE decapPk:sum(packetBytes) 3240
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[0].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[0].vlanEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchC.eth[0].vlanEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -4651,19 +4651,19 @@ scalar TestScenario8.switchC.eth[0].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchC.eth[0].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchC.eth[0].etherEncapE decapPk:count 2
+scalar TestScenario8.switchC.eth[0].etherEncapE decapPk:count 40
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[0].etherEncapE decapPk:sum(packetBytes) 170
+scalar TestScenario8.switchC.eth[0].etherEncapE decapPk:sum(packetBytes) 3400
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[0].etherEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[0].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[0].etherEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchC.eth[0].etherEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -4703,12 +4703,12 @@ scalar TestScenario8.switchC.eth[0].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].mac "simulated time" 0.0003
+scalar TestScenario8.switchC.eth[1].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchC.eth[1].mac full-duplex 1
-scalar TestScenario8.switchC.eth[1].mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.switchC.eth[1].mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.switchC.eth[1].mac "bits/sec sent" 3413333.3333333
-scalar TestScenario8.switchC.eth[1].mac "bits/sec rcvd" 2080000
+scalar TestScenario8.switchC.eth[1].mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.switchC.eth[1].mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.switchC.eth[1].mac "bits/sec sent" 2558017.8942545
+scalar TestScenario8.switchC.eth[1].mac "bits/sec rcvd" 1558792.1543113
 scalar TestScenario8.switchC.eth[1].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchC.eth[1].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchC.eth[1].mac pMacDelay:histogram
@@ -4725,9 +4725,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchC.eth[1].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -4760,7 +4760,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -4810,7 +4810,7 @@ scalar TestScenario8.switchC.eth[1].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchC.eth[1].mac expressFrames:count 1
+scalar TestScenario8.switchC.eth[1].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -4830,35 +4830,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchC.eth[1].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchC.eth[1].mac rxPkOk:count 1
+scalar TestScenario8.switchC.eth[1].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchC.eth[1].mac rxPkOk:sum(packetBytes) 78
+scalar TestScenario8.switchC.eth[1].mac rxPkOk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].mac txPk:count 1
+scalar TestScenario8.switchC.eth[1].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchC.eth[1].mac txPk:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[1].mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchC.eth[1].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchC.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].mac passedUpPk:count 1
+scalar TestScenario8.switchC.eth[1].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchC.eth[1].mac passedUpPk:sum(packetBytes) 78
+scalar TestScenario8.switchC.eth[1].mac passedUpPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -5125,16 +5125,16 @@ scalar TestScenario8.switchC.eth[1].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchC.eth[1].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchC.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 106
+scalar TestScenario8.switchC.eth[1].queuing.queues[7] rcvdPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchC.eth[1].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -5167,7 +5167,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -5199,19 +5199,19 @@ attr title "queue length, max"
 scalar TestScenario8.switchC.eth[1].queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchC.eth[1].vlanEncapE decapPk:count 1
+scalar TestScenario8.switchC.eth[1].vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[1].vlanEncapE decapPk:sum(packetBytes) 56
+scalar TestScenario8.switchC.eth[1].vlanEncapE decapPk:sum(packetBytes) 1120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[1].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[1].vlanEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchC.eth[1].vlanEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -5219,19 +5219,19 @@ scalar TestScenario8.switchC.eth[1].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchC.eth[1].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchC.eth[1].etherEncapE decapPk:count 1
+scalar TestScenario8.switchC.eth[1].etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[1].etherEncapE decapPk:sum(packetBytes) 60
+scalar TestScenario8.switchC.eth[1].etherEncapE decapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[1].etherEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[1].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[1].etherEncapE encapPk:sum(packetBytes) 110
+scalar TestScenario8.switchC.eth[1].etherEncapE encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -5271,12 +5271,12 @@ scalar TestScenario8.switchC.eth[1].etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].mac "simulated time" 0.0003
+scalar TestScenario8.switchC.eth[2].mac "simulated time" 0.00800619888
 scalar TestScenario8.switchC.eth[2].mac full-duplex 1
-scalar TestScenario8.switchC.eth[2].mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.switchC.eth[2].mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.switchC.eth[2].mac "bits/sec sent" 2080000
-scalar TestScenario8.switchC.eth[2].mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.switchC.eth[2].mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.switchC.eth[2].mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.switchC.eth[2].mac "bits/sec sent" 1558792.1543113
+scalar TestScenario8.switchC.eth[2].mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.switchC.eth[2].mac "rx channel idle (%)" 100
 scalar TestScenario8.switchC.eth[2].mac "rx channel utilization (%)" 0
 statistic TestScenario8.switchC.eth[2].mac pMacDelay:histogram
@@ -5293,9 +5293,9 @@ bin	-inf	0
 bin	0	0
 bin	1	0
 statistic TestScenario8.switchC.eth[2].mac eMacDelay:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -5328,7 +5328,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -5378,7 +5378,7 @@ scalar TestScenario8.switchC.eth[2].mac preemptableFrames:count 0
 attr interpolationmode none
 attr source transmittedPreemptableFrameSignal
 attr title "preemptableFrames, count"
-scalar TestScenario8.switchC.eth[2].mac expressFrames:count 1
+scalar TestScenario8.switchC.eth[2].mac expressFrames:count 20
 attr interpolationmode none
 attr source transmittedExpressFrameSignal
 attr title "expressFrames, count"
@@ -5398,35 +5398,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.switchC.eth[2].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.switchC.eth[2].mac rxPkOk:count 1
+scalar TestScenario8.switchC.eth[2].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.switchC.eth[2].mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[2].mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].mac txPk:count 1
+scalar TestScenario8.switchC.eth[2].mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.switchC.eth[2].mac txPk:sum(packetBytes) 78
+scalar TestScenario8.switchC.eth[2].mac txPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].mac packetReceivedFromUpper:count 1
+scalar TestScenario8.switchC.eth[2].mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.switchC.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 78
+scalar TestScenario8.switchC.eth[2].mac packetReceivedFromUpper:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].mac passedUpPk:count 1
+scalar TestScenario8.switchC.eth[2].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.switchC.eth[2].mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.switchC.eth[2].mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -5693,16 +5693,16 @@ scalar TestScenario8.switchC.eth[2].queuing.queues[7] dropPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source dropPkByQueue
 attr title "dropped packets, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].queuing.queues[7] rcvdPk:count 1
+scalar TestScenario8.switchC.eth[2].queuing.queues[7] rcvdPk:count 20
 attr interpolationmode none
 attr title "received packets, count"
-scalar TestScenario8.switchC.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 56
+scalar TestScenario8.switchC.eth[2].queuing.queues[7] rcvdPk:sum(packetBytes) 1120
 attr interpolationmode none
 attr title "received packets, sum(packetBytes)"
 statistic TestScenario8.switchC.eth[2].queuing.queues[7] queueingTime:histogram
-field count 1
+field count 20
 field mean 0
-field stddev -nan
+field stddev 0
 field min 0
 field max 0
 field sum 0
@@ -5735,7 +5735,7 @@ bin	-0.08	0
 bin	-0.06	0
 bin	-0.04	0
 bin	-0.02	0
-bin	0	1
+bin	0	20
 bin	0.02	0
 bin	0.04	0
 bin	0.06	0
@@ -5767,19 +5767,19 @@ attr title "queue length, max"
 scalar TestScenario8.switchC.eth[2].queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.switchC.eth[2].vlanEncapE decapPk:count 1
+scalar TestScenario8.switchC.eth[2].vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[2].vlanEncapE decapPk:sum(packetBytes) 106
+scalar TestScenario8.switchC.eth[2].vlanEncapE decapPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].vlanEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[2].vlanEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[2].vlanEncapE encapPk:sum(packetBytes) 60
+scalar TestScenario8.switchC.eth[2].vlanEncapE encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -5787,19 +5787,19 @@ scalar TestScenario8.switchC.eth[2].etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.switchC.eth[2].etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.switchC.eth[2].etherEncapE decapPk:count 1
+scalar TestScenario8.switchC.eth[2].etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.switchC.eth[2].etherEncapE decapPk:sum(packetBytes) 110
+scalar TestScenario8.switchC.eth[2].etherEncapE decapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.switchC.eth[2].etherEncapE encapPk:count 1
+scalar TestScenario8.switchC.eth[2].etherEncapE encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.switchC.eth[2].etherEncapE encapPk:sum(packetBytes) 60
+scalar TestScenario8.switchC.eth[2].etherEncapE encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -5840,83 +5840,83 @@ attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
 statistic TestScenario8.switchC.processingDelay[0] delay:stats
-field count 2
+field count 40
 field mean 5e-06
 field stddev 0
 field min 5e-06
 field max 5e-06
-field sum 1e-05
-field sqrsum 5e-11
+field sum 0.0002
+field sqrsum 1e-09
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchC.processingDelay[0] packetReceived:count 2
+scalar TestScenario8.switchC.processingDelay[0] packetReceived:count 40
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchC.processingDelay[0] packetReceived:sum(packetBytes) 150
+scalar TestScenario8.switchC.processingDelay[0] packetReceived:sum(packetBytes) 3000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchC.processingDelay[0] packetSent:count 2
+scalar TestScenario8.switchC.processingDelay[0] packetSent:count 40
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchC.processingDelay[0] packetSent:sum(packetBytes) 150
+scalar TestScenario8.switchC.processingDelay[0] packetSent:sum(packetBytes) 3000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
 statistic TestScenario8.switchC.processingDelay[1] delay:stats
-field count 1
+field count 20
 field mean 5e-06
-field stddev -nan
+field stddev 1.0432619722931e-13
 field min 5e-06
 field max 5e-06
-field sum 5e-06
-field sqrsum 2.5e-11
+field sum 0.0001
+field sqrsum 5e-10
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchC.processingDelay[1] packetReceived:count 1
+scalar TestScenario8.switchC.processingDelay[1] packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchC.processingDelay[1] packetReceived:sum(packetBytes) 50
+scalar TestScenario8.switchC.processingDelay[1] packetReceived:sum(packetBytes) 1000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchC.processingDelay[1] packetSent:count 1
+scalar TestScenario8.switchC.processingDelay[1] packetSent:count 20
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchC.processingDelay[1] packetSent:sum(packetBytes) 50
+scalar TestScenario8.switchC.processingDelay[1] packetSent:sum(packetBytes) 1000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
 statistic TestScenario8.switchC.processingDelay[2] delay:stats
-field count 1
+field count 20
 field mean 5e-06
-field stddev -nan
+field stddev 1.0432619722931e-13
 field min 5e-06
 field max 5e-06
-field sum 5e-06
-field sqrsum 2.5e-11
+field sum 0.0001
+field sqrsum 5e-10
 attr interpolationmode none
 attr source delay
 attr title "packet delay, stats"
-scalar TestScenario8.switchC.processingDelay[2] packetReceived:count 1
+scalar TestScenario8.switchC.processingDelay[2] packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.switchC.processingDelay[2] packetReceived:sum(packetBytes) 100
+scalar TestScenario8.switchC.processingDelay[2] packetReceived:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
-scalar TestScenario8.switchC.processingDelay[2] packetSent:count 1
+scalar TestScenario8.switchC.processingDelay[2] packetSent:count 20
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, count"
-scalar TestScenario8.switchC.processingDelay[2] packetSent:sum(packetBytes) 100
+scalar TestScenario8.switchC.processingDelay[2] packetSent:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
@@ -5928,19 +5928,19 @@ scalar TestScenario8.robotController1.flow[0].vlanEncap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[0].vlanEncap encapPk:count 1
+scalar TestScenario8.robotController1.flow[0].vlanEncap encapPk:count 21
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController1.flow[0].vlanEncap encapPk:sum(packetBytes) 110
+scalar TestScenario8.robotController1.flow[0].vlanEncap encapPk:sum(packetBytes) 2310
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[0].eth.mac "simulated time" 0.0003
+scalar TestScenario8.robotController1.flow[0].eth.mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController1.flow[0].eth.mac full-duplex 1
-scalar TestScenario8.robotController1.flow[0].eth.mac "frames/sec sent" 3333.3333333333
+scalar TestScenario8.robotController1.flow[0].eth.mac "frames/sec sent" 2622.9675673508
 scalar TestScenario8.robotController1.flow[0].eth.mac "frames/sec rcvd" 0
-scalar TestScenario8.robotController1.flow[0].eth.mac "bits/sec sent" 3413333.3333333
+scalar TestScenario8.robotController1.flow[0].eth.mac "bits/sec sent" 2685918.7889672
 scalar TestScenario8.robotController1.flow[0].eth.mac "bits/sec rcvd" 0
 scalar TestScenario8.robotController1.flow[0].eth.mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController1.flow[0].eth.mac "rx channel utilization (%)" 0
@@ -5964,19 +5964,19 @@ scalar TestScenario8.robotController1.flow[0].eth.mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[0].eth.mac txPk:count 1
+scalar TestScenario8.robotController1.flow[0].eth.mac txPk:count 21
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.robotController1.flow[0].eth.mac txPk:sum(packetBytes) 128
+scalar TestScenario8.robotController1.flow[0].eth.mac txPk:sum(packetBytes) 2688
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[0].eth.mac packetReceivedFromUpper:count 1
+scalar TestScenario8.robotController1.flow[0].eth.mac packetReceivedFromUpper:count 21
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.robotController1.flow[0].eth.mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.robotController1.flow[0].eth.mac packetReceivedFromUpper:sum(packetBytes) 2688
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -6024,11 +6024,11 @@ scalar TestScenario8.robotController1.flow[0].eth.encap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[0].eth.encap encapPk:count 1
+scalar TestScenario8.robotController1.flow[0].eth.encap encapPk:count 21
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController1.flow[0].eth.encap encapPk:sum(packetBytes) 110
+scalar TestScenario8.robotController1.flow[0].eth.encap encapPk:sum(packetBytes) 2310
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
@@ -6040,19 +6040,19 @@ scalar TestScenario8.robotController1.flow[1].vlanEncap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[1].vlanEncap encapPk:count 1
+scalar TestScenario8.robotController1.flow[1].vlanEncap encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController1.flow[1].vlanEncap encapPk:sum(packetBytes) 60
+scalar TestScenario8.robotController1.flow[1].vlanEncap encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[1].eth.mac "simulated time" 0.0003
+scalar TestScenario8.robotController1.flow[1].eth.mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController1.flow[1].eth.mac full-duplex 1
-scalar TestScenario8.robotController1.flow[1].eth.mac "frames/sec sent" 3333.3333333333
+scalar TestScenario8.robotController1.flow[1].eth.mac "frames/sec sent" 2498.0643498579
 scalar TestScenario8.robotController1.flow[1].eth.mac "frames/sec rcvd" 0
-scalar TestScenario8.robotController1.flow[1].eth.mac "bits/sec sent" 2080000
+scalar TestScenario8.robotController1.flow[1].eth.mac "bits/sec sent" 1558792.1543113
 scalar TestScenario8.robotController1.flow[1].eth.mac "bits/sec rcvd" 0
 scalar TestScenario8.robotController1.flow[1].eth.mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController1.flow[1].eth.mac "rx channel utilization (%)" 0
@@ -6076,19 +6076,19 @@ scalar TestScenario8.robotController1.flow[1].eth.mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[1].eth.mac txPk:count 1
+scalar TestScenario8.robotController1.flow[1].eth.mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.robotController1.flow[1].eth.mac txPk:sum(packetBytes) 78
+scalar TestScenario8.robotController1.flow[1].eth.mac txPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[1].eth.mac packetReceivedFromUpper:count 1
+scalar TestScenario8.robotController1.flow[1].eth.mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.robotController1.flow[1].eth.mac packetReceivedFromUpper:sum(packetBytes) 78
+scalar TestScenario8.robotController1.flow[1].eth.mac packetReceivedFromUpper:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -6136,20 +6136,20 @@ scalar TestScenario8.robotController1.flow[1].eth.encap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.flow[1].eth.encap encapPk:count 1
+scalar TestScenario8.robotController1.flow[1].eth.encap encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController1.flow[1].eth.encap encapPk:sum(packetBytes) 60
+scalar TestScenario8.robotController1.flow[1].eth.encap encapPk:sum(packetBytes) 1200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController1.toHost[0].mac "simulated time" 0.0003
+scalar TestScenario8.robotController1.toHost[0].mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController1.toHost[0].mac full-duplex 1
 scalar TestScenario8.robotController1.toHost[0].mac "frames/sec sent" 0
-scalar TestScenario8.robotController1.toHost[0].mac "frames/sec rcvd" 3333.3333333333
+scalar TestScenario8.robotController1.toHost[0].mac "frames/sec rcvd" 2622.9675673508
 scalar TestScenario8.robotController1.toHost[0].mac "bits/sec sent" 0
-scalar TestScenario8.robotController1.toHost[0].mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.robotController1.toHost[0].mac "bits/sec rcvd" 2685918.7889672
 scalar TestScenario8.robotController1.toHost[0].mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController1.toHost[0].mac "rx channel utilization (%)" 0
 scalar TestScenario8.robotController1.toHost[0].mac rxPausePkUnits:count 0
@@ -6164,11 +6164,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.robotController1.toHost[0].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.robotController1.toHost[0].mac rxPkOk:count 1
+scalar TestScenario8.robotController1.toHost[0].mac rxPkOk:count 21
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.robotController1.toHost[0].mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.robotController1.toHost[0].mac rxPkOk:sum(packetBytes) 2688
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -6188,11 +6188,11 @@ scalar TestScenario8.robotController1.toHost[0].mac packetReceivedFromUpper:sum(
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.robotController1.toHost[0].mac passedUpPk:count 1
+scalar TestScenario8.robotController1.toHost[0].mac passedUpPk:count 21
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.robotController1.toHost[0].mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.robotController1.toHost[0].mac passedUpPk:sum(packetBytes) 2688
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -6220,12 +6220,12 @@ scalar TestScenario8.robotController1.toHost[0].mac packetDropNotAddressedToUs:s
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar TestScenario8.robotController1.toHost[1].mac "simulated time" 0.0003
+scalar TestScenario8.robotController1.toHost[1].mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController1.toHost[1].mac full-duplex 1
 scalar TestScenario8.robotController1.toHost[1].mac "frames/sec sent" 0
-scalar TestScenario8.robotController1.toHost[1].mac "frames/sec rcvd" 3333.3333333333
+scalar TestScenario8.robotController1.toHost[1].mac "frames/sec rcvd" 2498.0643498579
 scalar TestScenario8.robotController1.toHost[1].mac "bits/sec sent" 0
-scalar TestScenario8.robotController1.toHost[1].mac "bits/sec rcvd" 2080000
+scalar TestScenario8.robotController1.toHost[1].mac "bits/sec rcvd" 1558792.1543113
 scalar TestScenario8.robotController1.toHost[1].mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController1.toHost[1].mac "rx channel utilization (%)" 0
 scalar TestScenario8.robotController1.toHost[1].mac rxPausePkUnits:count 0
@@ -6240,11 +6240,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.robotController1.toHost[1].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.robotController1.toHost[1].mac rxPkOk:count 1
+scalar TestScenario8.robotController1.toHost[1].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.robotController1.toHost[1].mac rxPkOk:sum(packetBytes) 78
+scalar TestScenario8.robotController1.toHost[1].mac rxPkOk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -6264,11 +6264,11 @@ scalar TestScenario8.robotController1.toHost[1].mac packetReceivedFromUpper:sum(
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.robotController1.toHost[1].mac passedUpPk:count 1
+scalar TestScenario8.robotController1.toHost[1].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.robotController1.toHost[1].mac passedUpPk:sum(packetBytes) 78
+scalar TestScenario8.robotController1.toHost[1].mac passedUpPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -6296,12 +6296,12 @@ scalar TestScenario8.robotController1.toHost[1].mac packetDropNotAddressedToUs:s
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar TestScenario8.robotController1.toChannel.mac "simulated time" 0.0003
+scalar TestScenario8.robotController1.toChannel.mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController1.toChannel.mac full-duplex 1
-scalar TestScenario8.robotController1.toChannel.mac "frames/sec sent" 6666.6666666667
-scalar TestScenario8.robotController1.toChannel.mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.robotController1.toChannel.mac "bits/sec sent" 5493333.3333333
-scalar TestScenario8.robotController1.toChannel.mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.robotController1.toChannel.mac "frames/sec sent" 5121.0319172086
+scalar TestScenario8.robotController1.toChannel.mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.robotController1.toChannel.mac "bits/sec sent" 4244710.9432785
+scalar TestScenario8.robotController1.toChannel.mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.robotController1.toChannel.mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController1.toChannel.mac "rx channel utilization (%)" 0
 scalar TestScenario8.robotController1.toChannel.mac rxPausePkUnits:count 0
@@ -6316,35 +6316,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.robotController1.toChannel.mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.robotController1.toChannel.mac rxPkOk:count 1
+scalar TestScenario8.robotController1.toChannel.mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.robotController1.toChannel.mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.robotController1.toChannel.mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.robotController1.toChannel.mac txPk:count 2
+scalar TestScenario8.robotController1.toChannel.mac txPk:count 41
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.robotController1.toChannel.mac txPk:sum(packetBytes) 206
+scalar TestScenario8.robotController1.toChannel.mac txPk:sum(packetBytes) 4248
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.robotController1.toChannel.mac packetReceivedFromUpper:count 2
+scalar TestScenario8.robotController1.toChannel.mac packetReceivedFromUpper:count 41
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.robotController1.toChannel.mac packetReceivedFromUpper:sum(packetBytes) 206
+scalar TestScenario8.robotController1.toChannel.mac packetReceivedFromUpper:sum(packetBytes) 4248
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.robotController1.toChannel.mac passedUpPk:count 1
+scalar TestScenario8.robotController1.toChannel.mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.robotController1.toChannel.mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.robotController1.toChannel.mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -6380,19 +6380,19 @@ scalar TestScenario8.robotController2.flow[0].vlanEncap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController2.flow[0].vlanEncap encapPk:count 1
+scalar TestScenario8.robotController2.flow[0].vlanEncap encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController2.flow[0].vlanEncap encapPk:sum(packetBytes) 110
+scalar TestScenario8.robotController2.flow[0].vlanEncap encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController2.flow[0].eth.mac "simulated time" 0.0003
+scalar TestScenario8.robotController2.flow[0].eth.mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController2.flow[0].eth.mac full-duplex 1
-scalar TestScenario8.robotController2.flow[0].eth.mac "frames/sec sent" 3333.3333333333
+scalar TestScenario8.robotController2.flow[0].eth.mac "frames/sec sent" 2498.0643498579
 scalar TestScenario8.robotController2.flow[0].eth.mac "frames/sec rcvd" 0
-scalar TestScenario8.robotController2.flow[0].eth.mac "bits/sec sent" 3413333.3333333
+scalar TestScenario8.robotController2.flow[0].eth.mac "bits/sec sent" 2558017.8942545
 scalar TestScenario8.robotController2.flow[0].eth.mac "bits/sec rcvd" 0
 scalar TestScenario8.robotController2.flow[0].eth.mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController2.flow[0].eth.mac "rx channel utilization (%)" 0
@@ -6416,19 +6416,19 @@ scalar TestScenario8.robotController2.flow[0].eth.mac rxPkOk:sum(packetBytes) 0
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.robotController2.flow[0].eth.mac txPk:count 1
+scalar TestScenario8.robotController2.flow[0].eth.mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.robotController2.flow[0].eth.mac txPk:sum(packetBytes) 128
+scalar TestScenario8.robotController2.flow[0].eth.mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.robotController2.flow[0].eth.mac packetReceivedFromUpper:count 1
+scalar TestScenario8.robotController2.flow[0].eth.mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.robotController2.flow[0].eth.mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.robotController2.flow[0].eth.mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
@@ -6476,20 +6476,20 @@ scalar TestScenario8.robotController2.flow[0].eth.encap decapPk:sum(packetBytes)
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController2.flow[0].eth.encap encapPk:count 1
+scalar TestScenario8.robotController2.flow[0].eth.encap encapPk:count 20
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, count"
-scalar TestScenario8.robotController2.flow[0].eth.encap encapPk:sum(packetBytes) 110
+scalar TestScenario8.robotController2.flow[0].eth.encap encapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.robotController2.toHost[0].mac "simulated time" 0.0003
+scalar TestScenario8.robotController2.toHost[0].mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController2.toHost[0].mac full-duplex 1
 scalar TestScenario8.robotController2.toHost[0].mac "frames/sec sent" 0
-scalar TestScenario8.robotController2.toHost[0].mac "frames/sec rcvd" 3333.3333333333
+scalar TestScenario8.robotController2.toHost[0].mac "frames/sec rcvd" 2498.0643498579
 scalar TestScenario8.robotController2.toHost[0].mac "bits/sec sent" 0
-scalar TestScenario8.robotController2.toHost[0].mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.robotController2.toHost[0].mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.robotController2.toHost[0].mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController2.toHost[0].mac "rx channel utilization (%)" 0
 scalar TestScenario8.robotController2.toHost[0].mac rxPausePkUnits:count 0
@@ -6504,11 +6504,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.robotController2.toHost[0].mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.robotController2.toHost[0].mac rxPkOk:count 1
+scalar TestScenario8.robotController2.toHost[0].mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.robotController2.toHost[0].mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.robotController2.toHost[0].mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -6528,11 +6528,11 @@ scalar TestScenario8.robotController2.toHost[0].mac packetReceivedFromUpper:sum(
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.robotController2.toHost[0].mac passedUpPk:count 1
+scalar TestScenario8.robotController2.toHost[0].mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.robotController2.toHost[0].mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.robotController2.toHost[0].mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -6560,12 +6560,12 @@ scalar TestScenario8.robotController2.toHost[0].mac packetDropNotAddressedToUs:s
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar TestScenario8.robotController2.toChannel.mac "simulated time" 0.0003
+scalar TestScenario8.robotController2.toChannel.mac "simulated time" 0.00800619888
 scalar TestScenario8.robotController2.toChannel.mac full-duplex 1
-scalar TestScenario8.robotController2.toChannel.mac "frames/sec sent" 3333.3333333333
-scalar TestScenario8.robotController2.toChannel.mac "frames/sec rcvd" 3333.3333333333
-scalar TestScenario8.robotController2.toChannel.mac "bits/sec sent" 3413333.3333333
-scalar TestScenario8.robotController2.toChannel.mac "bits/sec rcvd" 2080000
+scalar TestScenario8.robotController2.toChannel.mac "frames/sec sent" 2498.0643498579
+scalar TestScenario8.robotController2.toChannel.mac "frames/sec rcvd" 2498.0643498579
+scalar TestScenario8.robotController2.toChannel.mac "bits/sec sent" 2558017.8942545
+scalar TestScenario8.robotController2.toChannel.mac "bits/sec rcvd" 1558792.1543113
 scalar TestScenario8.robotController2.toChannel.mac "rx channel idle (%)" 100
 scalar TestScenario8.robotController2.toChannel.mac "rx channel utilization (%)" 0
 scalar TestScenario8.robotController2.toChannel.mac rxPausePkUnits:count 0
@@ -6580,35 +6580,35 @@ attr title "pause units sent, count"
 scalar TestScenario8.robotController2.toChannel.mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.robotController2.toChannel.mac rxPkOk:count 1
+scalar TestScenario8.robotController2.toChannel.mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.robotController2.toChannel.mac rxPkOk:sum(packetBytes) 78
+scalar TestScenario8.robotController2.toChannel.mac rxPkOk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
-scalar TestScenario8.robotController2.toChannel.mac txPk:count 1
+scalar TestScenario8.robotController2.toChannel.mac txPk:count 20
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, count"
-scalar TestScenario8.robotController2.toChannel.mac txPk:sum(packetBytes) 128
+scalar TestScenario8.robotController2.toChannel.mac txPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToLower
 attr title "packets transmitted, sum(packetBytes)"
-scalar TestScenario8.robotController2.toChannel.mac packetReceivedFromUpper:count 1
+scalar TestScenario8.robotController2.toChannel.mac packetReceivedFromUpper:count 20
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, count"
-scalar TestScenario8.robotController2.toChannel.mac packetReceivedFromUpper:sum(packetBytes) 128
+scalar TestScenario8.robotController2.toChannel.mac packetReceivedFromUpper:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.robotController2.toChannel.mac passedUpPk:count 1
+scalar TestScenario8.robotController2.toChannel.mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.robotController2.toChannel.mac passedUpPk:sum(packetBytes) 78
+scalar TestScenario8.robotController2.toChannel.mac passedUpPk:sum(packetBytes) 1560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -6636,28 +6636,28 @@ scalar TestScenario8.robotController2.toChannel.mac packetDropNotAddressedToUs:s
 attr interpolationmode none
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, sum(packetBytes)"
-scalar TestScenario8.roboticArm1.trafGenApp packetReceived:count 1
+scalar TestScenario8.roboticArm1.trafGenApp packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.roboticArm1.trafGenApp packetReceived:sum(packetBytes) 100
+scalar TestScenario8.roboticArm1.trafGenApp packetReceived:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
 statistic TestScenario8.roboticArm1.trafGenApp endToEndDelay:histogram
-field count 1
+field count 20
 field mean 1.357488e-05
-field stddev -nan
+field stddev 0
 field min 1.357488e-05
 field max 1.357488e-05
-field sum 1.357488e-05
-field sqrsum 1.842773670144e-10
+field sum 0.0002714976
+field sqrsum 3.685547340288e-09
 attr interpolationmode none
 attr source dataAge(packetReceived)
 attr title "end-to-end delay, histogram"
 attr unit s
 bin	-inf	0
-bin	0	1
+bin	0	20
 bin	0.01	0
 bin	0.02	0
 bin	0.03	0
@@ -6717,12 +6717,12 @@ scalar TestScenario8.roboticArm1.trafGenApp packetSent:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar TestScenario8.roboticArm1.eth.mac "simulated time" 0.0003
+scalar TestScenario8.roboticArm1.eth.mac "simulated time" 0.00800619888
 scalar TestScenario8.roboticArm1.eth.mac full-duplex 1
 scalar TestScenario8.roboticArm1.eth.mac "frames/sec sent" 0
-scalar TestScenario8.roboticArm1.eth.mac "frames/sec rcvd" 3333.3333333333
+scalar TestScenario8.roboticArm1.eth.mac "frames/sec rcvd" 2498.0643498579
 scalar TestScenario8.roboticArm1.eth.mac "bits/sec sent" 0
-scalar TestScenario8.roboticArm1.eth.mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.roboticArm1.eth.mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.roboticArm1.eth.mac "rx channel idle (%)" 100
 scalar TestScenario8.roboticArm1.eth.mac "rx channel utilization (%)" 0
 statistic TestScenario8.roboticArm1.eth.mac pMacDelay:histogram
@@ -6795,11 +6795,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.roboticArm1.eth.mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.roboticArm1.eth.mac rxPkOk:count 1
+scalar TestScenario8.roboticArm1.eth.mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.roboticArm1.eth.mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.roboticArm1.eth.mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -6819,11 +6819,11 @@ scalar TestScenario8.roboticArm1.eth.mac packetReceivedFromUpper:sum(packetBytes
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.roboticArm1.eth.mac passedUpPk:count 1
+scalar TestScenario8.roboticArm1.eth.mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.roboticArm1.eth.mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.roboticArm1.eth.mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -7115,11 +7115,11 @@ attr title "queue length, max"
 scalar TestScenario8.roboticArm1.eth.queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.roboticArm1.eth.vlanEncapE decapPk:count 1
+scalar TestScenario8.roboticArm1.eth.vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.roboticArm1.eth.vlanEncapE decapPk:sum(packetBytes) 106
+scalar TestScenario8.roboticArm1.eth.vlanEncapE decapPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
@@ -7135,11 +7135,11 @@ scalar TestScenario8.roboticArm1.eth.etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.roboticArm1.eth.etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.roboticArm1.eth.etherEncapE decapPk:count 1
+scalar TestScenario8.roboticArm1.eth.etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.roboticArm1.eth.etherEncapE decapPk:sum(packetBytes) 110
+scalar TestScenario8.roboticArm1.eth.etherEncapE decapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
@@ -7187,28 +7187,28 @@ scalar TestScenario8.roboticArm1.eth.etherEncapP encapPk:sum(packetBytes) 0
 attr interpolationmode none
 attr source encapPk
 attr title "packets encapsulated, sum(packetBytes)"
-scalar TestScenario8.roboticArm2.trafGenApp packetReceived:count 1
+scalar TestScenario8.roboticArm2.trafGenApp packetReceived:count 20
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, count"
-scalar TestScenario8.roboticArm2.trafGenApp packetReceived:sum(packetBytes) 100
+scalar TestScenario8.roboticArm2.trafGenApp packetReceived:sum(packetBytes) 2000
 attr interpolationmode none
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
 statistic TestScenario8.roboticArm2.trafGenApp endToEndDelay:histogram
-field count 1
+field count 20
 field mean 1.357488e-05
-field stddev -nan
+field stddev 0
 field min 1.357488e-05
 field max 1.357488e-05
-field sum 1.357488e-05
-field sqrsum 1.842773670144e-10
+field sum 0.0002714976
+field sqrsum 3.685547340288e-09
 attr interpolationmode none
 attr source dataAge(packetReceived)
 attr title "end-to-end delay, histogram"
 attr unit s
 bin	-inf	0
-bin	0	1
+bin	0	20
 bin	0.01	0
 bin	0.02	0
 bin	0.03	0
@@ -7268,12 +7268,12 @@ scalar TestScenario8.roboticArm2.trafGenApp packetSent:sum(packetBytes) 0
 attr interpolationmode none
 attr source packetSent
 attr title "packets sent, sum(packetBytes)"
-scalar TestScenario8.roboticArm2.eth.mac "simulated time" 0.0003
+scalar TestScenario8.roboticArm2.eth.mac "simulated time" 0.00800619888
 scalar TestScenario8.roboticArm2.eth.mac full-duplex 1
 scalar TestScenario8.roboticArm2.eth.mac "frames/sec sent" 0
-scalar TestScenario8.roboticArm2.eth.mac "frames/sec rcvd" 3333.3333333333
+scalar TestScenario8.roboticArm2.eth.mac "frames/sec rcvd" 2498.0643498579
 scalar TestScenario8.roboticArm2.eth.mac "bits/sec sent" 0
-scalar TestScenario8.roboticArm2.eth.mac "bits/sec rcvd" 3413333.3333333
+scalar TestScenario8.roboticArm2.eth.mac "bits/sec rcvd" 2558017.8942545
 scalar TestScenario8.roboticArm2.eth.mac "rx channel idle (%)" 100
 scalar TestScenario8.roboticArm2.eth.mac "rx channel utilization (%)" 0
 statistic TestScenario8.roboticArm2.eth.mac pMacDelay:histogram
@@ -7346,11 +7346,11 @@ attr title "pause units sent, count"
 scalar TestScenario8.roboticArm2.eth.mac txPausePkUnits:sum 0
 attr interpolationmode none
 attr title "pause units sent, sum"
-scalar TestScenario8.roboticArm2.eth.mac rxPkOk:count 1
+scalar TestScenario8.roboticArm2.eth.mac rxPkOk:count 20
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, count"
-scalar TestScenario8.roboticArm2.eth.mac rxPkOk:sum(packetBytes) 128
+scalar TestScenario8.roboticArm2.eth.mac rxPkOk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source rxPkOk
 attr title "packets received OK, sum(packetBytes)"
@@ -7370,11 +7370,11 @@ scalar TestScenario8.roboticArm2.eth.mac packetReceivedFromUpper:sum(packetBytes
 attr interpolationmode none
 attr source packetReceivedFromUpper
 attr title "packet bytes from higher layer, sum(packetBytes)"
-scalar TestScenario8.roboticArm2.eth.mac passedUpPk:count 1
+scalar TestScenario8.roboticArm2.eth.mac passedUpPk:count 20
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, count"
-scalar TestScenario8.roboticArm2.eth.mac passedUpPk:sum(packetBytes) 128
+scalar TestScenario8.roboticArm2.eth.mac passedUpPk:sum(packetBytes) 2560
 attr interpolationmode none
 attr source packetSentToUpper
 attr title "packets passed to higher layer, sum(packetBytes)"
@@ -7666,11 +7666,11 @@ attr title "queue length, max"
 scalar TestScenario8.roboticArm2.eth.queuing.queues[7] queueLength:timeavg 0
 attr interpolationmode sample-hold
 attr title "queue length, timeavg"
-scalar TestScenario8.roboticArm2.eth.vlanEncapE decapPk:count 1
+scalar TestScenario8.roboticArm2.eth.vlanEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.roboticArm2.eth.vlanEncapE decapPk:sum(packetBytes) 106
+scalar TestScenario8.roboticArm2.eth.vlanEncapE decapPk:sum(packetBytes) 2120
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
@@ -7686,11 +7686,11 @@ scalar TestScenario8.roboticArm2.eth.etherEncapE pauseSent:count 0
 attr title "pause sent, count"
 scalar TestScenario8.roboticArm2.eth.etherEncapE pauseSent:sum 0
 attr title "pause sent, sum"
-scalar TestScenario8.roboticArm2.eth.etherEncapE decapPk:count 1
+scalar TestScenario8.roboticArm2.eth.etherEncapE decapPk:count 20
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, count"
-scalar TestScenario8.roboticArm2.eth.etherEncapE decapPk:sum(packetBytes) 110
+scalar TestScenario8.roboticArm2.eth.etherEncapE decapPk:sum(packetBytes) 2200
 attr interpolationmode none
 attr source decapPk
 attr title "packets decapsulated, sum(packetBytes)"
