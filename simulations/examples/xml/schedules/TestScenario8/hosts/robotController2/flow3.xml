@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<schedule>
+	<!-- us -->
+	<cycle>400</cycle>
+	<!-- flow_id=3 -->
+	<host name="flow">
+		<!-- flow -->
+		<entry>
+			<!-- us -->
+			<start>50</start>
+			<queue>7</queue>
+			<dest>01:00:00:00:00:04</dest>
+			<group>01:00:00:00:00:06</group>
+			<!-- byte -->
+			<size>100</size>
+			<uniqueID>3</uniqueID>
+			<phase>0</phase>
+		</entry>
+	</host>
+</schedule>

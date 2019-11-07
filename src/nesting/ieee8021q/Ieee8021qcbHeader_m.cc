@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by nedtool 5.4 from nesting/ieee8021q/Ieee8021qcbHeader.msg.
+// Generated file, do not edit! Created by nedtool 5.5 from nesting/ieee8021q/Ieee8021qcbHeader.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:

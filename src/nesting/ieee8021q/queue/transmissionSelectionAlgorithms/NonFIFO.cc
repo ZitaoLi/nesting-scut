@@ -43,7 +43,12 @@ int NonFIFO::numInitStages() const {
 
 void NonFIFO::check() {
     unsigned int scheduleIndex = gateController->scheduleIndex;
-    unsigned int uniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
+    scheduleIndex -= 1;
+    if (scheduleIndex < 0) {
+        gateController->currentSchedule->size() - 1;
+    }
+//    unsigned int uniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
+    currentUniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
 
     int pktNum = queue->getPacketNum();
     for (int i = 0; i < pktNum; i++) {
@@ -53,7 +58,7 @@ void NonFIFO::check() {
         Packet* packet = check_and_cast<Packet*>(queue->getPacketFromQueue(i));
         ASSERT(packet->hasAtFront<nesting::Ieee8021qcbHeader>());
         auto rTagHeader = packet->peekAtFront<nesting::Ieee8021qcbHeader>();
-        if (uniqueID == rTagHeader->getUniqueID()) {
+        if (currentUniqueID == rTagHeader->getUniqueID()) {
             readyToSend = true;
             break;
         } else {
@@ -64,11 +69,11 @@ void NonFIFO::check() {
 
 void NonFIFO::handlePacketEnqueuedEvent() {
     unsigned int scheduleIndex = gateController->scheduleIndex;
-    unsigned int uniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
-    currentUniqueID = uniqueID;
-
-    std::cout << getFullPath() << ": current unique id = " << currentUniqueID << std::endl;
-    std::cout << getFullPath() << ": current scheduleIndex = " << scheduleIndex << std::endl;
+    scheduleIndex -= 1;
+    if (scheduleIndex < 0) {
+        gateController->currentSchedule->size() - 1;
+    }
+    currentUniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
 
     int pktNum = queue->getPacketNum();
     for (int i = 0; i < pktNum; i++) {
@@ -82,7 +87,6 @@ void NonFIFO::handlePacketEnqueuedEvent() {
         receivedUniqueID = uniqueID;
 
         EV_TRACE << "received TSN packet belongs to flow [" << uniqueID << "]" << endl;
-        std::cout << "get flow id [" << uniqueID << "]" << endl;
 
         if (currentUniqueID == receivedUniqueID) {
             readyToSend = true;

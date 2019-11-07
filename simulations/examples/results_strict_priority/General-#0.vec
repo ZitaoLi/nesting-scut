@@ -1,14 +1,14 @@
 version 2
-run General-0-20191105-14:18:28-24759
+run General-0-20191107-00:50:54-37306
 attr configname General
-attr datetime 20191105-14:18:28
+attr datetime 20191107-00:50:54
 attr experiment General
-attr inifile 13_example_strict-priority_non-fifo_host3.ini
+attr inifile 14_example_strict-priority_non-fifo_host4.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
-attr network TestScenario7
-attr processid 24759
+attr network TestScenario8
+attr processid 37306
 attr repetition 0
 attr replication #0
 attr resultdir results_strict_priority
@@ -19,15 +19,12 @@ param **.verbose true
 param **.promiscuous true
 param **.registerProtocol true
 param **.*.clock.clockRate "\"1us\""
-param **.robotController.numberOfFlow 2
-param **.robotController.flow1[0].eth.address "\"01-00-00-00-00-01\""
-param **.robotController.flow1[1].eth.address "\"01-00-00-00-00-02\""
-param **.roboticArm1.eth.address "\"01-00-00-00-00-04\""
-param **.roboticArm2.eth.address "\"01-00-00-00-00-04\""
+param **.robotController1.numberOfFlow 2
+param **.robotController2.numberOfFlow 1
 param **.switch*.processingDelay[*].delay 5us
-param **.filteringDatabase.database "xmldoc(\"xml/TestScenarioRouting3.xml\", \"/filteringDatabases/\")"
-param **.filteringDatabase.cycle "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\", \"/schedule/\")"
-param **.gateController.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.filteringDatabase.database "xmldoc(\"xml/routes/TestScenario8/routes_flat.xml\", \"/filteringDatabases/\")"
+param **.filteringDatabase.cycle "xmldoc(\"xml/schedules/TestScenario8/switches/switches_flat.xml\", \"/schedule/\")"
+param **.gateController.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/switches/switches_flat.xml\")"
 param **.gateController.enableHoldAndRelease false
 param **.switch*.eth[*].queuing.tsAlgorithms[0].typename "\"StrictPriority\""
 param **.switch*.eth[*].queuing.tsAlgorithms[1].typename "\"StrictPriority\""
@@ -48,8 +45,9 @@ param **.queues[7].expressQueue true
 param **.queues[*].bufferCapacity 363360b
 param **.switchA.eth[0].mac.enablePreemptingFrames false
 param **.switchA.eth[1].mac.enablePreemptingFrames false
-param **.robotController.flow1[0].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
-param **.robotController.flow1[1].trafGenSchedApp.initialSchedule "xmldoc(\"xml/TestScenarioSchedule_AllOpen2.xml\")"
+param **.robotController1.flow[0].trafGenSchedApp.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/hosts/robotController1/flow1.xml\")"
+param **.robotController1.flow[1].trafGenSchedApp.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/hosts/robotController1/flow2.xml\")"
+param **.robotController2.flow[0].trafGenSchedApp.initialSchedule "xmldoc(\"xml/schedules/TestScenario8/hosts/robotController2/flow3.xml\")"
 param **.roboticArm1.trafGenApp.numPacketsPerBurst 0
 param **.roboticArm1.trafGenApp.sendInterval 1ms
 param **.roboticArm1.trafGenApp.packetLength 100B
@@ -57,399 +55,504 @@ param **.roboticArm2.trafGenApp.numPacketsPerBurst 0
 param **.roboticArm2.trafGenApp.sendInterval 1ms
 param **.roboticArm2.trafGenApp.packetLength 100B
 
-vector 0 TestScenario7.switchA.eth[0].queuing.queues[0] queueLength:vector ETV
+vector 0 TestScenario8.switchA.eth[0].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 1 TestScenario7.switchA.eth[0].queuing.queues[1] queueLength:vector ETV
+vector 1 TestScenario8.switchA.eth[0].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 2 TestScenario7.switchA.eth[0].queuing.queues[2] queueLength:vector ETV
+vector 2 TestScenario8.switchA.eth[0].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 3 TestScenario7.switchA.eth[0].queuing.queues[3] queueLength:vector ETV
+vector 3 TestScenario8.switchA.eth[0].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 4 TestScenario7.switchA.eth[0].queuing.queues[4] queueLength:vector ETV
+vector 4 TestScenario8.switchA.eth[0].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 5 TestScenario7.switchA.eth[0].queuing.queues[5] queueLength:vector ETV
+vector 5 TestScenario8.switchA.eth[0].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 6 TestScenario7.switchA.eth[0].queuing.queues[6] queueLength:vector ETV
+vector 6 TestScenario8.switchA.eth[0].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 7 TestScenario7.switchA.eth[0].queuing.queues[7] queueLength:vector ETV
+vector 7 TestScenario8.switchA.eth[0].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 8 TestScenario7.switchA.eth[1].queuing.queues[0] queueLength:vector ETV
+vector 8 TestScenario8.switchA.eth[1].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 9 TestScenario7.switchA.eth[1].queuing.queues[1] queueLength:vector ETV
+vector 9 TestScenario8.switchA.eth[1].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 10 TestScenario7.switchA.eth[1].queuing.queues[2] queueLength:vector ETV
+vector 10 TestScenario8.switchA.eth[1].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 11 TestScenario7.switchA.eth[1].queuing.queues[3] queueLength:vector ETV
+vector 11 TestScenario8.switchA.eth[1].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 12 TestScenario7.switchA.eth[1].queuing.queues[4] queueLength:vector ETV
+vector 12 TestScenario8.switchA.eth[1].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 13 TestScenario7.switchA.eth[1].queuing.queues[5] queueLength:vector ETV
+vector 13 TestScenario8.switchA.eth[1].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 14 TestScenario7.switchA.eth[1].queuing.queues[6] queueLength:vector ETV
+vector 14 TestScenario8.switchA.eth[1].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 15 TestScenario7.switchA.eth[1].queuing.queues[7] queueLength:vector ETV
+vector 15 TestScenario8.switchA.eth[1].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 16 TestScenario7.switchA.eth[2].queuing.queues[0] queueLength:vector ETV
+vector 16 TestScenario8.switchA.eth[2].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 17 TestScenario7.switchA.eth[2].queuing.queues[1] queueLength:vector ETV
+vector 17 TestScenario8.switchA.eth[2].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 18 TestScenario7.switchA.eth[2].queuing.queues[2] queueLength:vector ETV
+vector 18 TestScenario8.switchA.eth[2].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 19 TestScenario7.switchA.eth[2].queuing.queues[3] queueLength:vector ETV
+vector 19 TestScenario8.switchA.eth[2].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 20 TestScenario7.switchA.eth[2].queuing.queues[4] queueLength:vector ETV
+vector 20 TestScenario8.switchA.eth[2].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 21 TestScenario7.switchA.eth[2].queuing.queues[5] queueLength:vector ETV
+vector 21 TestScenario8.switchA.eth[2].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 22 TestScenario7.switchA.eth[2].queuing.queues[6] queueLength:vector ETV
+vector 22 TestScenario8.switchA.eth[2].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 23 TestScenario7.switchA.eth[2].queuing.queues[7] queueLength:vector ETV
+vector 23 TestScenario8.switchA.eth[2].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 24 TestScenario7.switchB.eth[0].queuing.queues[0] queueLength:vector ETV
+vector 24 TestScenario8.switchB.eth[0].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 25 TestScenario7.switchB.eth[0].queuing.queues[1] queueLength:vector ETV
+vector 25 TestScenario8.switchB.eth[0].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 26 TestScenario7.switchB.eth[0].queuing.queues[2] queueLength:vector ETV
+vector 26 TestScenario8.switchB.eth[0].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 27 TestScenario7.switchB.eth[0].queuing.queues[3] queueLength:vector ETV
+vector 27 TestScenario8.switchB.eth[0].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 28 TestScenario7.switchB.eth[0].queuing.queues[4] queueLength:vector ETV
+vector 28 TestScenario8.switchB.eth[0].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 29 TestScenario7.switchB.eth[0].queuing.queues[5] queueLength:vector ETV
+vector 29 TestScenario8.switchB.eth[0].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 30 TestScenario7.switchB.eth[0].queuing.queues[6] queueLength:vector ETV
+vector 30 TestScenario8.switchB.eth[0].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 31 TestScenario7.switchB.eth[0].queuing.queues[7] queueLength:vector ETV
+vector 31 TestScenario8.switchB.eth[0].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 32 TestScenario7.switchB.eth[1].queuing.queues[0] queueLength:vector ETV
+vector 32 TestScenario8.switchB.eth[1].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 33 TestScenario7.switchB.eth[1].queuing.queues[1] queueLength:vector ETV
+vector 33 TestScenario8.switchB.eth[1].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 34 TestScenario7.switchB.eth[1].queuing.queues[2] queueLength:vector ETV
+vector 34 TestScenario8.switchB.eth[1].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 35 TestScenario7.switchB.eth[1].queuing.queues[3] queueLength:vector ETV
+vector 35 TestScenario8.switchB.eth[1].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 36 TestScenario7.switchB.eth[1].queuing.queues[4] queueLength:vector ETV
+vector 36 TestScenario8.switchB.eth[1].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 37 TestScenario7.switchB.eth[1].queuing.queues[5] queueLength:vector ETV
+vector 37 TestScenario8.switchB.eth[1].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 38 TestScenario7.switchB.eth[1].queuing.queues[6] queueLength:vector ETV
+vector 38 TestScenario8.switchB.eth[1].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 39 TestScenario7.switchB.eth[1].queuing.queues[7] queueLength:vector ETV
+vector 39 TestScenario8.switchB.eth[1].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 40 TestScenario7.switchB.eth[2].queuing.queues[0] queueLength:vector ETV
+vector 40 TestScenario8.switchB.eth[2].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 41 TestScenario7.switchB.eth[2].queuing.queues[1] queueLength:vector ETV
+vector 41 TestScenario8.switchB.eth[2].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 42 TestScenario7.switchB.eth[2].queuing.queues[2] queueLength:vector ETV
+vector 42 TestScenario8.switchB.eth[2].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 43 TestScenario7.switchB.eth[2].queuing.queues[3] queueLength:vector ETV
+vector 43 TestScenario8.switchB.eth[2].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 44 TestScenario7.switchB.eth[2].queuing.queues[4] queueLength:vector ETV
+vector 44 TestScenario8.switchB.eth[2].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 45 TestScenario7.switchB.eth[2].queuing.queues[5] queueLength:vector ETV
+vector 45 TestScenario8.switchB.eth[2].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 46 TestScenario7.switchB.eth[2].queuing.queues[6] queueLength:vector ETV
+vector 46 TestScenario8.switchB.eth[2].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 47 TestScenario7.switchB.eth[2].queuing.queues[7] queueLength:vector ETV
+vector 47 TestScenario8.switchB.eth[2].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 48 TestScenario7.switchB.eth[3].queuing.queues[0] queueLength:vector ETV
+vector 48 TestScenario8.switchB.eth[3].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 49 TestScenario7.switchB.eth[3].queuing.queues[1] queueLength:vector ETV
+vector 49 TestScenario8.switchB.eth[3].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 50 TestScenario7.switchB.eth[3].queuing.queues[2] queueLength:vector ETV
+vector 50 TestScenario8.switchB.eth[3].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 51 TestScenario7.switchB.eth[3].queuing.queues[3] queueLength:vector ETV
+vector 51 TestScenario8.switchB.eth[3].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 52 TestScenario7.switchB.eth[3].queuing.queues[4] queueLength:vector ETV
+vector 52 TestScenario8.switchB.eth[3].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 53 TestScenario7.switchB.eth[3].queuing.queues[5] queueLength:vector ETV
+vector 53 TestScenario8.switchB.eth[3].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 54 TestScenario7.switchB.eth[3].queuing.queues[6] queueLength:vector ETV
+vector 54 TestScenario8.switchB.eth[3].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 55 TestScenario7.switchB.eth[3].queuing.queues[7] queueLength:vector ETV
+vector 55 TestScenario8.switchB.eth[3].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 56 TestScenario7.switchC.eth[0].queuing.queues[0] queueLength:vector ETV
+vector 56 TestScenario8.switchC.eth[0].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 57 TestScenario7.switchC.eth[0].queuing.queues[1] queueLength:vector ETV
+vector 57 TestScenario8.switchC.eth[0].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 58 TestScenario7.switchC.eth[0].queuing.queues[2] queueLength:vector ETV
+vector 58 TestScenario8.switchC.eth[0].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 59 TestScenario7.switchC.eth[0].queuing.queues[3] queueLength:vector ETV
+vector 59 TestScenario8.switchC.eth[0].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 60 TestScenario7.switchC.eth[0].queuing.queues[4] queueLength:vector ETV
+vector 60 TestScenario8.switchC.eth[0].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 61 TestScenario7.switchC.eth[0].queuing.queues[5] queueLength:vector ETV
+vector 61 TestScenario8.switchC.eth[0].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 62 TestScenario7.switchC.eth[0].queuing.queues[6] queueLength:vector ETV
+vector 62 TestScenario8.switchC.eth[0].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 63 TestScenario7.switchC.eth[0].queuing.queues[7] queueLength:vector ETV
+vector 63 TestScenario8.switchC.eth[0].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 64 TestScenario7.switchC.eth[1].queuing.queues[0] queueLength:vector ETV
+vector 64 TestScenario8.switchC.eth[1].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 65 TestScenario7.switchC.eth[1].queuing.queues[1] queueLength:vector ETV
+vector 65 TestScenario8.switchC.eth[1].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 66 TestScenario7.switchC.eth[1].queuing.queues[2] queueLength:vector ETV
+vector 66 TestScenario8.switchC.eth[1].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 67 TestScenario7.switchC.eth[1].queuing.queues[3] queueLength:vector ETV
+vector 67 TestScenario8.switchC.eth[1].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 68 TestScenario7.switchC.eth[1].queuing.queues[4] queueLength:vector ETV
+vector 68 TestScenario8.switchC.eth[1].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 69 TestScenario7.switchC.eth[1].queuing.queues[5] queueLength:vector ETV
+vector 69 TestScenario8.switchC.eth[1].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 70 TestScenario7.switchC.eth[1].queuing.queues[6] queueLength:vector ETV
+vector 70 TestScenario8.switchC.eth[1].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 71 TestScenario7.switchC.eth[1].queuing.queues[7] queueLength:vector ETV
+vector 71 TestScenario8.switchC.eth[1].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 72 TestScenario7.roboticArm1.eth.queuing.queues[0] queueLength:vector ETV
+vector 72 TestScenario8.switchC.eth[2].queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 73 TestScenario7.roboticArm1.eth.queuing.queues[1] queueLength:vector ETV
+vector 73 TestScenario8.switchC.eth[2].queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 74 TestScenario7.roboticArm1.eth.queuing.queues[2] queueLength:vector ETV
+vector 74 TestScenario8.switchC.eth[2].queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 75 TestScenario7.roboticArm1.eth.queuing.queues[3] queueLength:vector ETV
+vector 75 TestScenario8.switchC.eth[2].queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 76 TestScenario7.roboticArm1.eth.queuing.queues[4] queueLength:vector ETV
+vector 76 TestScenario8.switchC.eth[2].queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 77 TestScenario7.roboticArm1.eth.queuing.queues[5] queueLength:vector ETV
+vector 77 TestScenario8.switchC.eth[2].queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 78 TestScenario7.roboticArm1.eth.queuing.queues[6] queueLength:vector ETV
+vector 78 TestScenario8.switchC.eth[2].queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 79 TestScenario7.roboticArm1.eth.queuing.queues[7] queueLength:vector ETV
+vector 79 TestScenario8.switchC.eth[2].queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 80 TestScenario7.roboticArm2.eth.queuing.queues[0] queueLength:vector ETV
+vector 80 TestScenario8.roboticArm1.eth.queuing.queues[0] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 81 TestScenario7.roboticArm2.eth.queuing.queues[1] queueLength:vector ETV
+vector 81 TestScenario8.roboticArm1.eth.queuing.queues[1] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 82 TestScenario7.roboticArm2.eth.queuing.queues[2] queueLength:vector ETV
+vector 82 TestScenario8.roboticArm1.eth.queuing.queues[2] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 83 TestScenario7.roboticArm2.eth.queuing.queues[3] queueLength:vector ETV
+vector 83 TestScenario8.roboticArm1.eth.queuing.queues[3] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 84 TestScenario7.roboticArm2.eth.queuing.queues[4] queueLength:vector ETV
+vector 84 TestScenario8.roboticArm1.eth.queuing.queues[4] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 85 TestScenario7.roboticArm2.eth.queuing.queues[5] queueLength:vector ETV
+vector 85 TestScenario8.roboticArm1.eth.queuing.queues[5] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 86 TestScenario7.roboticArm2.eth.queuing.queues[6] queueLength:vector ETV
+vector 86 TestScenario8.roboticArm1.eth.queuing.queues[6] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 87 TestScenario7.roboticArm2.eth.queuing.queues[7] queueLength:vector ETV
+vector 87 TestScenario8.roboticArm1.eth.queuing.queues[7] queueLength:vector ETV
 attr interpolationmode sample-hold
 attr title "queue length, vector"
-vector 88 TestScenario7.robotController.flow1[0].vlanEncap encapPk:vector(packetBytes) ETV
+vector 88 TestScenario8.roboticArm2.eth.queuing.queues[0] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 89 TestScenario8.roboticArm2.eth.queuing.queues[1] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 90 TestScenario8.roboticArm2.eth.queuing.queues[2] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 91 TestScenario8.roboticArm2.eth.queuing.queues[3] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 92 TestScenario8.roboticArm2.eth.queuing.queues[4] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 93 TestScenario8.roboticArm2.eth.queuing.queues[5] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 94 TestScenario8.roboticArm2.eth.queuing.queues[6] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 95 TestScenario8.roboticArm2.eth.queuing.queues[7] queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 96 TestScenario8.switchA.eth[0].queuing.tGates[0] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 89 TestScenario7.robotController.flow1[1].vlanEncap encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 97 TestScenario8.switchA.eth[0].queuing.tGates[1] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 90 TestScenario7.robotController.flow1[0].eth.encap encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 98 TestScenario8.switchA.eth[0].queuing.tGates[2] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 91 TestScenario7.robotController.flow1[1].eth.encap encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 99 TestScenario8.switchA.eth[0].queuing.tGates[3] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 92 TestScenario7.robotController.flow1[0].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 100 TestScenario8.switchA.eth[0].queuing.tGates[4] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, vector(packetBytes)"
-vector 93 TestScenario7.robotController.flow1[1].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 101 TestScenario8.switchA.eth[0].queuing.tGates[5] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, vector(packetBytes)"
-vector 94 TestScenario7.robotController.toHost[0].mac rxPkOk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 102 TestScenario8.switchA.eth[0].queuing.tGates[6] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, vector(packetBytes)"
-vector 95 TestScenario7.robotController.toHost[0].mac passedUpPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 103 TestScenario8.switchA.eth[1].queuing.tGates[0] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, vector(packetBytes)"
-vector 96 TestScenario7.robotController.flow1[0].eth.mac txPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 104 TestScenario8.switchA.eth[1].queuing.tGates[1] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, vector(packetBytes)"
-vector 97 TestScenario7.robotController.toHost[1].mac rxPkOk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 105 TestScenario8.switchA.eth[1].queuing.tGates[2] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, vector(packetBytes)"
-vector 98 TestScenario7.robotController.toHost[1].mac passedUpPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 106 TestScenario8.switchA.eth[1].queuing.tGates[3] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, vector(packetBytes)"
-vector 99 TestScenario7.robotController.flow1[1].eth.mac txPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 107 TestScenario8.switchA.eth[1].queuing.tGates[4] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, vector(packetBytes)"
-vector 100 TestScenario7.robotController.toChannel.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 108 TestScenario8.switchA.eth[1].queuing.tGates[5] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, vector(packetBytes)"
-vector 101 TestScenario7.robotController.toChannel.mac txPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 109 TestScenario8.switchA.eth[1].queuing.tGates[6] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToLower
-attr title "packets transmitted, vector(packetBytes)"
-vector 102 TestScenario7.switchA.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 110 TestScenario8.switchA.eth[2].queuing.tGates[0] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "receivedExpressFrame, vector(packetBytes)"
-vector 103 TestScenario7.switchA.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 111 TestScenario8.switchA.eth[2].queuing.tGates[1] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source rxPkOk
-attr title "packets received OK, vector(packetBytes)"
-vector 104 TestScenario7.switchA.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 112 TestScenario8.switchA.eth[2].queuing.tGates[2] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSentToUpper
-attr title "packets passed to higher layer, vector(packetBytes)"
-vector 105 TestScenario7.switchA.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 113 TestScenario8.switchA.eth[2].queuing.tGates[3] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, vector(packetBytes)"
-vector 106 TestScenario7.switchA.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 114 TestScenario8.switchA.eth[2].queuing.tGates[4] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source decapPk
-attr title "packets decapsulated, vector(packetBytes)"
-vector 107 TestScenario7.switchA.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 115 TestScenario8.switchA.eth[2].queuing.tGates[5] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceived
-attr title "packets received, vector(packetBytes)"
-vector 108 TestScenario7.switchA.processingDelay[0] delay:vector ETV
+attr title "gateStateChanged, vector"
+vector 116 TestScenario8.switchA.eth[2].queuing.tGates[6] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source delay
-attr title "packet delay, vector"
-vector 109 TestScenario7.switchA.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 117 TestScenario8.switchB.eth[0].queuing.tGates[0] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetSent
-attr title "packets sent, vector(packetBytes)"
-vector 110 TestScenario7.switchA.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 118 TestScenario8.switchB.eth[0].queuing.tGates[1] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "received packets, vector(packetBytes)"
-vector 111 TestScenario7.switchA.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 119 TestScenario8.switchB.eth[0].queuing.tGates[2] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "received packets, vector(packetBytes)"
-vector 112 TestScenario7.switchA.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr title "gateStateChanged, vector"
+vector 120 TestScenario8.switchB.eth[0].queuing.tGates[3] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "queueing time, vector"
-vector 113 TestScenario7.switchA.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 121 TestScenario8.switchB.eth[0].queuing.tGates[4] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 114 TestScenario7.switchA.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 122 TestScenario8.switchB.eth[0].queuing.tGates[5] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 115 TestScenario7.switchA.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 123 TestScenario8.switchB.eth[0].queuing.tGates[6] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, vector(packetBytes)"
-vector 116 TestScenario7.switchA.eth[1].mac eMacDelay:vector ETV
+attr title "gateStateChanged, vector"
+vector 124 TestScenario8.switchB.eth[1].queuing.tGates[0] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "eMacDelay, vector"
-vector 117 TestScenario7.switchA.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr title "gateStateChanged, vector"
+vector 125 TestScenario8.switchB.eth[1].queuing.tGates[1] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "queueing time, vector"
-vector 118 TestScenario7.switchA.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 126 TestScenario8.switchB.eth[1].queuing.tGates[2] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 119 TestScenario7.switchA.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 127 TestScenario8.switchB.eth[1].queuing.tGates[3] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source encapPk
-attr title "packets encapsulated, vector(packetBytes)"
-vector 120 TestScenario7.switchA.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr title "gateStateChanged, vector"
+vector 128 TestScenario8.switchB.eth[1].queuing.tGates[4] gateStateChanged:vector ETV
 attr interpolationmode none
-attr source packetReceivedFromUpper
-attr title "packet bytes from higher layer, vector(packetBytes)"
-vector 121 TestScenario7.switchA.eth[2].mac eMacDelay:vector ETV
+attr title "gateStateChanged, vector"
+vector 129 TestScenario8.switchB.eth[1].queuing.tGates[5] gateStateChanged:vector ETV
 attr interpolationmode none
-attr title "eMacDelay, vector"
+attr title "gateStateChanged, vector"
+vector 130 TestScenario8.switchB.eth[1].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 131 TestScenario8.switchB.eth[2].queuing.tGates[0] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 132 TestScenario8.switchB.eth[2].queuing.tGates[1] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 133 TestScenario8.switchB.eth[2].queuing.tGates[2] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 134 TestScenario8.switchB.eth[2].queuing.tGates[3] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 135 TestScenario8.switchB.eth[2].queuing.tGates[4] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 136 TestScenario8.switchB.eth[2].queuing.tGates[5] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 137 TestScenario8.switchB.eth[2].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 138 TestScenario8.switchB.eth[3].queuing.tGates[0] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 139 TestScenario8.switchB.eth[3].queuing.tGates[1] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 140 TestScenario8.switchB.eth[3].queuing.tGates[2] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 141 TestScenario8.switchB.eth[3].queuing.tGates[3] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 142 TestScenario8.switchB.eth[3].queuing.tGates[4] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 143 TestScenario8.switchB.eth[3].queuing.tGates[5] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 144 TestScenario8.switchB.eth[3].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 145 TestScenario8.switchC.eth[0].queuing.tGates[0] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 146 TestScenario8.switchC.eth[0].queuing.tGates[1] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 147 TestScenario8.switchC.eth[0].queuing.tGates[2] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 148 TestScenario8.switchC.eth[0].queuing.tGates[3] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 149 TestScenario8.switchC.eth[0].queuing.tGates[4] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 150 TestScenario8.switchC.eth[0].queuing.tGates[5] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 151 TestScenario8.switchC.eth[0].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 152 TestScenario8.switchC.eth[1].queuing.tGates[0] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 153 TestScenario8.switchC.eth[1].queuing.tGates[1] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 154 TestScenario8.switchC.eth[1].queuing.tGates[2] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 155 TestScenario8.switchC.eth[1].queuing.tGates[3] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 156 TestScenario8.switchC.eth[1].queuing.tGates[4] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 157 TestScenario8.switchC.eth[1].queuing.tGates[5] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 158 TestScenario8.switchC.eth[1].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 159 TestScenario8.switchC.eth[2].queuing.tGates[0] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 160 TestScenario8.switchC.eth[2].queuing.tGates[1] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 161 TestScenario8.switchC.eth[2].queuing.tGates[2] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 162 TestScenario8.switchC.eth[2].queuing.tGates[3] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 163 TestScenario8.switchC.eth[2].queuing.tGates[4] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 164 TestScenario8.switchC.eth[2].queuing.tGates[5] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 165 TestScenario8.switchC.eth[2].queuing.tGates[6] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
 0	0	0	0
 1	0	0	0
 2	0	0	0
@@ -466,8 +569,6 @@ attr title "eMacDelay, vector"
 13	0	0	0
 14	0	0	0
 15	0	0	0
-15	157	0.0000082512	1
-15	166	0.0000082512	0
 16	0	0	0
 17	0	0	0
 18	0	0	0
@@ -476,8 +577,6 @@ attr title "eMacDelay, vector"
 21	0	0	0
 22	0	0	0
 23	0	0	0
-23	158	0.0000082512	1
-23	176	0.0000082512	0
 24	0	0	0
 25	0	0	0
 26	0	0	0
@@ -542,47 +641,1015 @@ attr title "eMacDelay, vector"
 85	0	0	0
 86	0	0	0
 87	0	0	0
-88	98	0	364
-89	99	0	364
-90	100	0	364
-91	101	0	364
-92	102	0	382
-93	103	0	382
-94	115	0.0000000312	382
-95	115	0.0000000312	382
-96	116	0.0000000312	382
-97	117	0.0000000312	382
-98	117	0.0000000312	382
-99	118	0.0000000312	382
-100	121	0.0000000312	382
-100	122	0.0000000312	382
-101	125	0.0000031512	382
-101	135	0.0000063672	382
-102	127	0.0000032512	390
-102	137	0.0000064672	390
-103	127	0.0000032512	382
-103	137	0.0000064672	382
-104	127	0.0000032512	382
-104	137	0.0000064672	382
-105	128	0.0000032512	364
-105	138	0.0000064672	364
-106	129	0.0000032512	360
-106	139	0.0000064672	360
-107	134	0.0000032512	354
-107	144	0.0000064672	354
-108	134	0.0000032512	5e-06
-108	144	0.0000064672	5e-06
-109	145	0.0000082512	354
-110	157	0.0000082512	360
-111	158	0.0000082512	360
-112	166	0.0000082512	0
-113	170	0.0000082512	364
-114	171	0.0000082512	364
-115	172	0.0000082512	382
-116	172	0.0000082512	0
-117	176	0.0000082512	0
-118	180	0.0000082512	364
-119	181	0.0000082512	364
-120	182	0.0000082512	382
-121	182	0.0000082512	0
+88	0	0	0
+89	0	0	0
+90	0	0	0
+91	0	0	0
+92	0	0	0
+93	0	0	0
+94	0	0	0
+95	0	0	0
+96	9	0	0
+97	11	0	0
+98	13	0	0
+99	15	0	0
+100	17	0	0
+101	19	0	0
+102	21	0	0
+103	24	0	0
+104	26	0	0
+105	28	0	0
+106	30	0	0
+107	32	0	0
+108	34	0	0
+109	36	0	0
+110	39	0	0
+111	41	0	0
+112	43	0	0
+113	45	0	0
+114	47	0	0
+115	49	0	0
+116	51	0	0
+117	54	0	0
+118	56	0	0
+119	58	0	0
+120	60	0	0
+121	62	0	0
+122	64	0	0
+123	66	0	0
+124	69	0	0
+125	71	0	0
+126	73	0	0
+127	75	0	0
+128	77	0	0
+129	79	0	0
+130	81	0	0
+131	84	0	0
+132	86	0	0
+133	88	0	0
+134	90	0	0
+135	92	0	0
+136	94	0	0
+137	96	0	0
+138	99	0	0
+139	101	0	0
+140	103	0	0
+141	105	0	0
+142	107	0	0
+143	109	0	0
+144	111	0	0
+145	114	0	0
+146	116	0	0
+147	118	0	0
+148	120	0	0
+149	122	0	0
+150	124	0	0
+151	126	0	0
+152	129	0	0
+153	131	0	0
+154	133	0	0
+155	135	0	0
+156	137	0	0
+157	139	0	0
+158	141	0	0
+159	144	0	0
+160	146	0	0
+161	148	0	0
+162	150	0	0
+163	152	0	0
+164	154	0	0
+165	156	0	0
+vector 166 TestScenario8.robotController1.flow[0].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 167 TestScenario8.robotController1.flow[0].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 168 TestScenario8.robotController1.flow[0].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 169 TestScenario8.robotController1.toHost[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 170 TestScenario8.robotController1.toHost[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 171 TestScenario8.robotController1.flow[0].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 172 TestScenario8.robotController1.toChannel.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 173 TestScenario8.robotController1.toChannel.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 174 TestScenario8.switchA.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 175 TestScenario8.switchA.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 176 TestScenario8.switchA.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 177 TestScenario8.switchA.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 178 TestScenario8.switchA.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 179 TestScenario8.switchA.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 180 TestScenario8.switchA.processingDelay[0] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 181 TestScenario8.switchA.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 182 TestScenario8.switchA.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 183 TestScenario8.switchA.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 184 TestScenario8.switchA.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 185 TestScenario8.switchA.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 186 TestScenario8.switchA.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 187 TestScenario8.switchA.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 188 TestScenario8.switchA.eth[1].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 189 TestScenario8.switchA.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 190 TestScenario8.switchA.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 191 TestScenario8.switchA.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 192 TestScenario8.switchA.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 193 TestScenario8.switchA.eth[2].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 194 TestScenario8.switchA.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 195 TestScenario8.switchA.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 196 TestScenario8.switchB.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 197 TestScenario8.switchB.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 198 TestScenario8.switchB.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 199 TestScenario8.switchC.eth[0].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 200 TestScenario8.switchC.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 201 TestScenario8.switchC.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 202 TestScenario8.switchB.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 203 TestScenario8.switchC.eth[0].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 204 TestScenario8.switchB.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 205 TestScenario8.switchC.eth[0].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 206 TestScenario8.switchB.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 207 TestScenario8.switchB.processingDelay[0] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 208 TestScenario8.switchC.processingDelay[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 209 TestScenario8.switchC.processingDelay[0] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 210 TestScenario8.switchB.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 211 TestScenario8.switchC.processingDelay[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 212 TestScenario8.switchB.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 213 TestScenario8.switchB.eth[3].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 214 TestScenario8.switchC.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 215 TestScenario8.switchB.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 216 TestScenario8.switchB.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 217 TestScenario8.switchB.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 218 TestScenario8.switchB.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 219 TestScenario8.switchB.eth[2].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 220 TestScenario8.switchB.eth[3].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 221 TestScenario8.switchB.eth[3].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 222 TestScenario8.switchB.eth[3].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 223 TestScenario8.switchB.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 224 TestScenario8.switchB.eth[3].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 225 TestScenario8.switchC.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 226 TestScenario8.switchC.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 227 TestScenario8.switchC.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 228 TestScenario8.switchC.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 229 TestScenario8.switchC.eth[1].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 230 TestScenario8.switchB.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 231 TestScenario8.switchB.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 232 TestScenario8.switchC.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 233 TestScenario8.roboticArm1.eth.mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 234 TestScenario8.roboticArm1.eth.mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 235 TestScenario8.roboticArm1.eth.mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 236 TestScenario8.roboticArm2.eth.mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 237 TestScenario8.roboticArm2.eth.mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 238 TestScenario8.roboticArm2.eth.mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 239 TestScenario8.switchB.eth[1].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 240 TestScenario8.switchB.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 241 TestScenario8.switchB.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 242 TestScenario8.roboticArm1.eth.etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 243 TestScenario8.roboticArm2.eth.etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 244 TestScenario8.switchB.eth[1].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 245 TestScenario8.roboticArm1.eth.vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 246 TestScenario8.roboticArm2.eth.vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 247 TestScenario8.switchB.eth[1].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 248 TestScenario8.roboticArm1.trafGenApp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 249 TestScenario8.roboticArm1.trafGenApp endToEndDelay:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, vector"
+attr unit s
+vector 250 TestScenario8.roboticArm2.trafGenApp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 251 TestScenario8.roboticArm2.trafGenApp endToEndDelay:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, vector"
+attr unit s
+vector 252 TestScenario8.switchB.processingDelay[1] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 253 TestScenario8.switchB.processingDelay[1] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 254 TestScenario8.switchB.processingDelay[1] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 255 TestScenario8.robotController1.flow[1].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 256 TestScenario8.robotController2.flow[0].vlanEncap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 257 TestScenario8.robotController1.flow[1].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 258 TestScenario8.robotController2.flow[0].eth.encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 259 TestScenario8.robotController1.flow[1].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 260 TestScenario8.robotController2.flow[0].eth.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 261 TestScenario8.robotController1.toHost[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 262 TestScenario8.robotController1.toHost[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 263 TestScenario8.robotController1.flow[1].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 264 TestScenario8.robotController2.toHost[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 265 TestScenario8.robotController2.toHost[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 266 TestScenario8.robotController2.flow[0].eth.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 267 TestScenario8.robotController2.toChannel.mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 268 TestScenario8.robotController2.toChannel.mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 269 TestScenario8.switchC.eth[2].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 270 TestScenario8.switchC.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 271 TestScenario8.switchC.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 272 TestScenario8.switchC.eth[2].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 273 TestScenario8.switchC.eth[2].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 274 TestScenario8.switchC.processingDelay[2] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 275 TestScenario8.switchC.processingDelay[2] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 276 TestScenario8.switchC.processingDelay[2] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 277 TestScenario8.switchC.eth[0].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 278 TestScenario8.switchB.eth[0].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 279 TestScenario8.switchB.eth[1].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 280 TestScenario8.switchC.eth[2].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 281 TestScenario8.switchB.eth[1].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 282 TestScenario8.switchB.eth[1].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 283 TestScenario8.switchB.eth[1].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 284 TestScenario8.switchB.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 285 TestScenario8.switchB.eth[1].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 286 TestScenario8.switchC.eth[2].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 287 TestScenario8.switchC.eth[2].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 288 TestScenario8.switchC.eth[2].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 289 TestScenario8.switchC.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 290 TestScenario8.switchC.eth[2].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 291 TestScenario8.switchB.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 292 TestScenario8.switchC.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 293 TestScenario8.switchC.eth[1].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 294 TestScenario8.switchC.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 295 TestScenario8.switchC.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 296 TestScenario8.robotController2.toChannel.mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 297 TestScenario8.robotController2.toChannel.mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 298 TestScenario8.switchC.eth[1].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 299 TestScenario8.switchC.eth[1].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 300 TestScenario8.switchC.processingDelay[1] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 301 TestScenario8.switchC.processingDelay[1] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 302 TestScenario8.switchC.processingDelay[1] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 303 TestScenario8.switchC.eth[0].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 304 TestScenario8.switchC.eth[0].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 305 TestScenario8.switchC.eth[0].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 306 TestScenario8.switchC.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 307 TestScenario8.switchC.eth[0].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 308 TestScenario8.switchC.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 309 TestScenario8.switchA.eth[2].mac receivedExpressFrame:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "receivedExpressFrame, vector(packetBytes)"
+vector 310 TestScenario8.switchA.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 311 TestScenario8.switchA.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 312 TestScenario8.switchA.eth[2].etherEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 313 TestScenario8.switchA.eth[2].vlanEncapE decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 314 TestScenario8.switchA.processingDelay[2] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 315 TestScenario8.switchA.processingDelay[2] delay:vector ETV
+attr interpolationmode none
+attr source delay
+attr title "packet delay, vector"
+vector 316 TestScenario8.switchA.processingDelay[2] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 317 TestScenario8.switchA.eth[0].queuing.queues[7] rcvdPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 318 TestScenario8.switchA.eth[0].queuing.queues[7] queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 319 TestScenario8.switchA.eth[0].vlanEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 320 TestScenario8.switchA.eth[0].etherEncapE encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 321 TestScenario8.switchA.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 322 TestScenario8.switchA.eth[0].mac eMacDelay:vector ETV
+attr interpolationmode none
+attr title "eMacDelay, vector"
+vector 323 TestScenario8.switchA.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 324 TestScenario8.robotController1.toChannel.mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 325 TestScenario8.robotController1.toChannel.mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 326 TestScenario8.switchA.eth[0].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 327 TestScenario8.switchA.eth[1].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 328 TestScenario8.switchA.eth[2].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 329 TestScenario8.switchB.eth[1].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 330 TestScenario8.switchB.eth[2].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 331 TestScenario8.switchB.eth[3].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 332 TestScenario8.switchC.eth[0].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+vector 333 TestScenario8.switchC.eth[1].queuing.tGates[7] gateStateChanged:vector ETV
+attr interpolationmode none
+attr title "gateStateChanged, vector"
+7	763	0.000206188	1
+7	769	0.000206188	0
+15	218	0.00000619888	1
+15	227	0.00000619888	0
+15	415	0.00005579488	1
+15	543	0.0001	0
+23	219	0.00000619888	1
+23	237	0.00000619888	0
+23	416	0.00005579488	1
+23	553	0.0001	0
+39	596	0.000105788	1
+39	605	0.000105788	0
+47	285	0.00001238688	1
+47	297	0.00001238688	0
+55	286	0.00001238688	1
+55	307	0.00001238688	0
+63	426	0.00005619888	1
+63	738	0.0002	0
+71	287	0.00001238688	1
+71	317	0.00001238688	0
+79	597	0.000105788	1
+79	615	0.000105788	0
+96	784	0.0003	1
+97	786	0.0003	1
+98	788	0.0003	1
+99	790	0.0003	1
+100	792	0.0003	1
+101	794	0.0003	1
+102	796	0.0003	1
+103	800	0.0003	1
+104	802	0.0003	1
+105	804	0.0003	1
+106	806	0.0003	1
+107	808	0.0003	1
+108	810	0.0003	1
+109	812	0.0003	1
+110	816	0.0003	1
+111	818	0.0003	1
+112	820	0.0003	1
+113	822	0.0003	1
+114	824	0.0003	1
+115	826	0.0003	1
+116	828	0.0003	1
+117	523	0.0001	1
+117	693	0.0002	0
+118	525	0.0001	1
+118	695	0.0002	0
+119	527	0.0001	1
+119	697	0.0002	0
+120	529	0.0001	1
+120	699	0.0002	0
+121	531	0.0001	1
+121	701	0.0002	0
+122	533	0.0001	1
+122	703	0.0002	0
+123	535	0.0001	1
+123	705	0.0002	0
+124	832	0.0003	1
+125	834	0.0003	1
+126	836	0.0003	1
+127	838	0.0003	1
+128	840	0.0003	1
+129	842	0.0003	1
+130	844	0.0003	1
+131	848	0.0003	1
+132	850	0.0003	1
+133	852	0.0003	1
+134	854	0.0003	1
+135	856	0.0003	1
+136	858	0.0003	1
+137	860	0.0003	1
+138	864	0.0003	1
+139	866	0.0003	1
+140	868	0.0003	1
+141	870	0.0003	1
+142	872	0.0003	1
+143	874	0.0003	1
+144	876	0.0003	1
+145	889	0.0003	1
+146	891	0.0003	1
+147	893	0.0003	1
+148	895	0.0003	1
+149	897	0.0003	1
+150	899	0.0003	1
+151	901	0.0003	1
+152	905	0.0003	1
+153	907	0.0003	1
+154	909	0.0003	1
+155	911	0.0003	1
+156	913	0.0003	1
+157	915	0.0003	1
+158	917	0.0003	1
+159	921	0.0003	1
+160	923	0.0003	1
+161	925	0.0003	1
+166	176	0	110
+167	177	0	110
+168	178	0	128
+169	191	0.00000001088	128
+170	191	0.00000001088	128
+171	192	0.00000001088	128
+172	194	0.00000001088	128
+172	376	0.00005000688	78
+173	196	0.00000109888	128
+173	383	0.00005069488	78
+174	198	0.00000119888	136
+174	385	0.00005079488	86
+175	198	0.00000119888	128
+175	385	0.00005079488	78
+176	198	0.00000119888	128
+176	385	0.00005079488	78
+177	199	0.00000119888	110
+177	386	0.00005079488	60
+178	200	0.00000119888	106
+178	387	0.00005079488	56
+179	205	0.00000119888	100
+179	392	0.00005079488	50
+180	205	0.00000119888	5e-06
+180	392	0.00005079488	5e-06
+181	206	0.00000619888	100
+181	403	0.00005579488	50
+182	218	0.00000619888	106
+182	415	0.00005579488	56
+183	219	0.00000619888	106
+183	416	0.00005579488	56
+184	227	0.00000619888	0
+184	543	0.0001	4.420512e-05
+185	231	0.00000619888	110
+185	547	0.0001	60
+186	232	0.00000619888	110
+186	548	0.0001	60
+187	233	0.00000619888	128
+187	549	0.0001	78
+188	233	0.00000619888	0
+188	549	0.0001	0
+189	237	0.00000619888	0
+189	553	0.0001	4.420512e-05
+190	241	0.00000619888	110
+190	557	0.0001	60
+191	242	0.00000619888	110
+191	558	0.0001	60
+192	243	0.00000619888	128
+192	559	0.0001	78
+193	243	0.00000619888	0
+193	559	0.0001	0
+194	244	0.00000728688	128
+194	560	0.000100688	78
+195	245	0.00000728688	128
+195	561	0.000100688	78
+196	250	0.00000738688	136
+196	566	0.000100788	86
+197	250	0.00000738688	128
+197	566	0.000100788	78
+198	250	0.00000738688	128
+198	566	0.000100788	78
+199	251	0.00000738688	136
+199	567	0.000100788	86
+200	251	0.00000738688	128
+200	567	0.000100788	78
+201	251	0.00000738688	128
+201	567	0.000100788	78
+202	252	0.00000738688	110
+202	568	0.000100788	60
+203	253	0.00000738688	110
+203	569	0.000100788	60
+204	254	0.00000738688	106
+204	570	0.000100788	56
+205	255	0.00000738688	106
+205	571	0.000100788	56
+206	264	0.00000738688	100
+206	580	0.000100788	50
+207	264	0.00000738688	5e-06
+207	580	0.000100788	5e-06
+208	265	0.00000738688	100
+208	581	0.000100788	50
+209	265	0.00000738688	5e-06
+209	581	0.000100788	5e-06
+210	266	0.00001238688	100
+210	582	0.000105788	50
+211	267	0.00001238688	100
+211	583	0.000105788	50
+212	285	0.00001238688	106
+213	286	0.00001238688	106
+214	287	0.00001238688	106
+215	297	0.00001238688	0
+216	301	0.00001238688	110
+217	302	0.00001238688	110
+218	303	0.00001238688	128
+219	303	0.00001238688	0
+220	307	0.00001238688	0
+221	311	0.00001238688	110
+222	312	0.00001238688	110
+223	313	0.00001238688	128
+224	313	0.00001238688	0
+225	317	0.00001238688	0
+226	321	0.00001238688	110
+227	322	0.00001238688	110
+228	323	0.00001238688	128
+229	323	0.00001238688	0
+230	324	0.00001347488	128
+231	325	0.00001347488	128
+232	326	0.00001347488	128
+233	333	0.00001357488	136
+234	333	0.00001357488	128
+235	333	0.00001357488	128
+236	334	0.00001357488	136
+237	334	0.00001357488	128
+238	334	0.00001357488	128
+239	335	0.00001357488	136
+240	335	0.00001357488	128
+241	335	0.00001357488	128
+242	336	0.00001357488	110
+243	337	0.00001357488	110
+244	338	0.00001357488	110
+245	339	0.00001357488	106
+246	340	0.00001357488	106
+247	341	0.00001357488	106
+248	354	0.00001357488	100
+249	354	0.00001357488	1.357488e-05
+250	355	0.00001357488	100
+251	355	0.00001357488	1.357488e-05
+252	356	0.00001357488	100
+253	356	0.00001357488	5e-06
+254	357	0.00001857488	100
+255	367	0.00005	60
+256	368	0.00005	110
+257	369	0.00005	60
+258	370	0.00005	110
+259	371	0.00005	78
+260	372	0.00005	128
+261	373	0.00005000688	78
+262	373	0.00005000688	78
+263	374	0.00005000688	78
+264	378	0.00005001088	128
+265	378	0.00005001088	128
+266	379	0.00005001088	128
+267	381	0.00005001088	128
+268	393	0.00005109888	128
+269	395	0.00005119888	136
+270	395	0.00005119888	128
+271	395	0.00005119888	128
+272	396	0.00005119888	110
+273	397	0.00005119888	106
+274	402	0.00005119888	100
+275	402	0.00005119888	5e-06
+276	419	0.00005619888	100
+277	426	0.00005619888	106
+278	537	0.0001	0
+278	707	0.0002	1
+279	596	0.000105788	56
+280	597	0.000105788	56
+281	605	0.000105788	0
+282	609	0.000105788	60
+283	610	0.000105788	60
+284	611	0.000105788	78
+285	611	0.000105788	0
+286	615	0.000105788	0
+287	619	0.000105788	60
+288	620	0.000105788	60
+289	621	0.000105788	78
+290	621	0.000105788	0
+291	622	0.000106476	78
+292	623	0.000106476	78
+293	628	0.000106576	86
+294	628	0.000106576	78
+295	628	0.000106576	78
+296	629	0.000106576	78
+297	629	0.000106576	78
+298	630	0.000106576	60
+299	632	0.000106576	56
+300	637	0.000106576	50
+301	637	0.000106576	5e-06
+302	638	0.000111576	50
+303	738	0.0002	0.00014380112
+304	742	0.0002	110
+305	743	0.0002	110
+306	744	0.0002	128
+307	744	0.0002	0
+308	745	0.000201088	128
+309	748	0.000201188	136
+310	748	0.000201188	128
+311	748	0.000201188	128
+312	749	0.000201188	110
+313	750	0.000201188	106
+314	755	0.000201188	100
+315	755	0.000201188	5e-06
+316	756	0.000206188	100
+317	763	0.000206188	106
+318	769	0.000206188	0
+319	773	0.000206188	110
+320	774	0.000206188	110
+321	775	0.000206188	128
+322	775	0.000206188	0
+323	776	0.000207276	128
+324	779	0.000207376	128
+325	779	0.000207376	128
+326	798	0.0003	0
+327	814	0.0003	0
+328	830	0.0003	0
+329	846	0.0003	0
+330	862	0.0003	0
+331	878	0.0003	0
+332	903	0.0003	0
+333	919	0.0003	0
 

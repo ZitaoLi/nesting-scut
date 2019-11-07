@@ -55,7 +55,7 @@ module VlanEtherMultiHostSched
     gates:
         inout ethg @labels(EtherFrame-conn);
     submodules:
-        flow1[numberOfFlow]: VlanEtherHostSched2 {
+        flow[numberOfFlow]: VlanEtherHostSched2 {
             @display("p=217,41,r,200");
         }
         mergingPipe: MergingPipe {
@@ -80,7 +80,7 @@ module VlanEtherMultiHostSched
         }
     connections:
         for i=0..numberOfFlow-1 {
-            flow1[i].ethg <--> CC <--> toHost[i].phys;
+            flow[i].ethg <--> CC <--> toHost[i].phys;
             toHost[i].upperLayerOut --> { @display("m=n"); } --> mergingPipe.hostIn++;
             toHost[i].upperLayerIn <-- { @display("m=n"); } <-- mergingPipe.hostOut++;
         }
