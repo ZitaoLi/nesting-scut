@@ -43,9 +43,9 @@ int NonFIFO::numInitStages() const {
 
 void NonFIFO::check() {
     unsigned int scheduleIndex = gateController->scheduleIndex;
-    scheduleIndex -= 1;
+    scheduleIndex = (scheduleIndex - 1) % gateController->currentSchedule->size();
     if (scheduleIndex < 0) {
-        gateController->currentSchedule->size() - 1;
+        scheduleIndex = (gateController->currentSchedule->size() - 1) % gateController->currentSchedule->size();
     }
 //    unsigned int uniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
     currentUniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
@@ -69,10 +69,10 @@ void NonFIFO::check() {
 
 void NonFIFO::handlePacketEnqueuedEvent() {
     unsigned int scheduleIndex = gateController->scheduleIndex;
-    scheduleIndex -= 1;
-    if (scheduleIndex < 0) {
-        gateController->currentSchedule->size() - 1;
-    }
+        scheduleIndex = (scheduleIndex - 1) % gateController->currentSchedule->size();
+        if (scheduleIndex < 0) {
+            scheduleIndex = (gateController->currentSchedule->size() - 1) % gateController->currentSchedule->size();
+        }
     currentUniqueID = gateController->currentSchedule->getUniqueID(scheduleIndex);
 
     int pktNum = queue->getPacketNum();
