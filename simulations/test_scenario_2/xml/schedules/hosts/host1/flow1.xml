@@ -3,7 +3,7 @@
 	<!-- us -->
 	<cycle>400</cycle>
 	<!-- flow_id=1 -->
-	<host name="flow">
+	<host name="host1">
 		<!-- flow -->
 		<entry>
 			<start><!-- us -->0</start>

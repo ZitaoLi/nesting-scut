@@ -3,35 +3,35 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+//
 
-package nesting.node.ethernet;
+#ifndef __NESTING_TSNFLOWGENSCHED_H
+#define __NESTING_TSNFLOWGENSCHED_H
 
-import inet.linklayer.ethernet.EtherMacFullDuplex;
-import inet.linklayer.ethernet.IEtherEncap;
-import inet.networklayer.common.InterfaceTable;
-import inet.linklayer.contract.IEthernetInterface;
-import inet.linklayer.ethernet.EthernetInterface;
+#include <omnetpp.h>
 
-simple MergingPipe
-{
-    parameters:
-        bool verbose = default(false);
-        @networkNode();
-        @class(MergingPipe);
-//        *.interfaceTableModule = default("");
-    gates:
-        input hostIn[];
-        input channelIn;
-        output hostOut[];
-        output channelOut;
-        inout toStatistics;
-}
+#include "VlanEtherTrafGenSched.h";
+
+using namespace omnetpp;
+
+namespace nesting {
+
+/**
+ * See the NED file for a detailed description
+ */
+class TSNFlowGenSched: public VlanEtherTrafGenSched {
+public:
+    virtual void loadScheduleOrDefault(cXMLElement* xml) override;
+};
+
+} // namespace nesting
+
+#endif /* __NESTING_TSNFLOWGENSCHED_H */

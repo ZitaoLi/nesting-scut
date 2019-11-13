@@ -42,7 +42,8 @@ namespace nesting {
  * See the NED file for a detailed description
  */
 class VlanEtherTrafGenSched: public cSimpleModule, public IClockListener {
-private:
+//private:
+protected:
 
     /** Current schedule. Is never null. */
     std::unique_ptr<HostSchedule<Ieee8021QCtrl>> currentSchedule;

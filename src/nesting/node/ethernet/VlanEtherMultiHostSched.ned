@@ -26,6 +26,8 @@ import inet.linklayer.contract.IEtherMac;
 import inet.networklayer.common.InterfaceEntry;
 import inet.linklayer.ethernet.EtherMacFullDuplex;
 import nesting.node.ethernet.MergingMac;
+import nesting.linklayer.ethernet.VLANEncap;
+import nesting.linklayer.ethernet.VLANTagREncap;
 
 channel CC extends DatarateChannel
 {
@@ -68,15 +70,15 @@ module VlanEtherMultiHostSched
         toChannel: MergingMac {
             @display("p=97,216");
         }
-        //        toHost[numberOfFlow]: EthernetInterface {
-        //            @display("p=82,123,row,150;q=txQueue");
-        //        }
-        //        toChannel: EthernetInterface {
-        //            @display("p=82,277,row,150;q=txQueue");
-        //        }
+        toStatistics: MergingMac {
+            @display("p=217,311");
+        }
         interfaceTable: InterfaceTable {
             parameters:
                 @display("p=47,33;is=s");
+        }
+        statisticsHost: StatisticsHost {
+            @display("p=217,391");
         }
     connections:
         for i=0..numberOfFlow-1 {
@@ -87,4 +89,9 @@ module VlanEtherMultiHostSched
         mergingPipe.channelOut --> { @display("m=n"); } --> toChannel.upperLayerIn;
         mergingPipe.channelIn <-- { @display("m=n"); } <-- toChannel.upperLayerOut;
         toChannel.phys <--> { @display("m=n"); } <--> ethg;
+
+        mergingPipe.toStatistics$o --> { @display("n=m"); } --> toStatistics.upperLayerIn;
+        mergingPipe.toStatistics$i <-- { @display("n=m"); } <-- toStatistics.upperLayerOut;
+
+        toStatistics.phys <--> CC <--> statisticsHost.ethg;
 }

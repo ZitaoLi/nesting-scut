@@ -13,33 +13,37 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef NESTING_NODE_ETHERNET_MERGINGPIPE_H_
-#define NESTING_NODE_ETHERNET_MERGINGPIPE_H_
+#ifndef NESTING_NODE_ETHERNET_STATISTICSAPP_H_
+#define NESTING_NODE_ETHERNET_STATISTICSAPP_H_
 
 #include <omnetpp.h>
 #include <unordered_map>
+#include <iostream>
 #include "inet/common/packet/Packet.h"
-#include "inet/common/packet/chunk/Chunk.h"
-#include "../../ieee8021q/Ieee8021qcbHeader_m.h"
 
 using namespace omnetpp;
 
 namespace nesting {
 
-class MergingPipe: public cSimpleModule {
+class StatisticsApp: public omnetpp::cSimpleModule {
+
 private:
     std::unordered_map<unsigned int, unsigned int> dictFlowPort;
     std::unordered_map<unsigned int, float> dictFlowPER;
+
 public:
-    MergingPipe();
-    virtual ~MergingPipe();
+    StatisticsApp();
+    virtual ~StatisticsApp();
+
 protected:
-    virtual void initialize();
-    virtual void handleMessage(cMessage *msg);
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
+
 private:
+    virtual void loadXml();
     virtual void processPacketFromLowerLevel(inet::Packet *packet);
 };
 
 } /* namespace nesting */
 
-#endif /* NESTING_NODE_ETHERNET_MERGINGPIPE_H_ */
+#endif /* NESTING_NODE_ETHERNET_STATISTICSAPP_H_ */

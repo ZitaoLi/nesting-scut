@@ -13,25 +13,35 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package nesting.node.ethernet;
+#include "StatisticsApp.h"
 
-import inet.linklayer.ethernet.EtherMacFullDuplex;
-import inet.linklayer.ethernet.IEtherEncap;
-import inet.networklayer.common.InterfaceTable;
-import inet.linklayer.contract.IEthernetInterface;
-import inet.linklayer.ethernet.EthernetInterface;
+namespace nesting {
 
-simple MergingPipe
-{
-    parameters:
-        bool verbose = default(false);
-        @networkNode();
-        @class(MergingPipe);
-//        *.interfaceTableModule = default("");
-    gates:
-        input hostIn[];
-        input channelIn;
-        output hostOut[];
-        output channelOut;
-        inout toStatistics;
+Define_Module(StatisticsApp);
+
+StatisticsApp::StatisticsApp() {
+    // TODO Auto-generated constructor stub
+
 }
+
+StatisticsApp::~StatisticsApp() {
+    // TODO Auto-generated destructor stub
+}
+
+void StatisticsApp::initialize() {
+
+}
+
+void StatisticsApp::handleMessage(cMessage *msg) {
+    std::cout << "hello world" << std::endl;
+}
+
+void StatisticsApp::loadXml() {
+
+}
+
+void StatisticsApp::processPacketFromLowerLevel(inet::Packet *packet) {
+
+}
+
+} /* namespace nesting */

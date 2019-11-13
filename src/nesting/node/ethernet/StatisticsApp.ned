@@ -15,23 +15,13 @@
 
 package nesting.node.ethernet;
 
-import inet.linklayer.ethernet.EtherMacFullDuplex;
-import inet.linklayer.ethernet.IEtherEncap;
-import inet.networklayer.common.InterfaceTable;
-import inet.linklayer.contract.IEthernetInterface;
-import inet.linklayer.ethernet.EthernetInterface;
-
-simple MergingPipe
+//
+// TODO auto-generated type
+//
+simple StatisticsApp
 {
     parameters:
-        bool verbose = default(false);
-        @networkNode();
-        @class(MergingPipe);
-//        *.interfaceTableModule = default("");
+        @class(StatisticsApp);
     gates:
-        input hostIn[];
-        input channelIn;
-        output hostOut[];
-        output channelOut;
-        inout toStatistics;
+        inout port;
 }

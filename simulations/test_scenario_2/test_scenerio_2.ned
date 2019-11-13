@@ -13,16 +13,14 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package nesting.simulations.test_scenario_1;
+package nesting.simulations.test_scenario_2;
 
 import ned.DatarateChannel;
 import nesting.node.ethernet.VlanEtherSwitchPreemptable2;
-import nesting.node.ethernet.VlanEtherMultiHostSched;
-import nesting.node.ethernet.VlanEtherHostFullLoad;
-import nesting.node.ethernet.VlanEtherHostQ2;
+import nesting.node.ethernet.TSNHost;
 
 
-network TestScenario1
+network TestScenario2
 {
     types:
         channel C extends DatarateChannel
@@ -57,16 +55,16 @@ network TestScenario1
             gates:
                 ethg[3];
         }
-        host1: VlanEtherMultiHostSched {
+        host1: TSNHost {
             @display("p=53,170");
         }
-        host2: VlanEtherMultiHostSched {
+        host2: TSNHost {
             @display("p=229,50");
         }
-        host3: VlanEtherMultiHostSched {
+        host3: TSNHost {
             @display("p=519,125");
         }
-        host4: VlanEtherMultiHostSched {
+        host4: TSNHost {
             @display("p=519,209");
         }
     connections:
