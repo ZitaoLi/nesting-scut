@@ -15,8 +15,6 @@
 
 #include "TSNFlowGenSched.h"
 
-#define COMPILETIME_LOGLEVEL omnetpp::LOGLEVEL_TRACE
-
 namespace nesting {
 
 Define_Module(TSNFlowGenSched);
