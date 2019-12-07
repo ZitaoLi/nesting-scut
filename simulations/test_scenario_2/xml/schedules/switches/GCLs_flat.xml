@@ -107,14 +107,14 @@
 			</entry>
 			<entry>
 				<!-- us -->
-				<length></length>
+				<length>100</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length></length>
+				<length>100</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>

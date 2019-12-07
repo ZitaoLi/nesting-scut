@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<flows>
+	<flow id="1" source="" destination="" size="" cycle="" deadline="" reliability="" />
+	<flow id="2" source="" destination="" size="" cycle="" deadline="" reliability="" />
+	<flow id="3" source="" destination="" size="" cycle="" deadline="" reliability="" />
+</flows>

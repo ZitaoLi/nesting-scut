@@ -69,7 +69,8 @@ module TSNHost
             @display("p=188,157;is=l");
         }
     connections:
-        statisticsApp.port <--> mergingPipe.toStatistics;
+        statisticsApp.fromHigherLayer <--> mergingPipe.toStatisticsFromHigherLayer;
+        statisticsApp.fromLowerLayer <--> mergingPipe.toStatisticsFromLowerLayer;
         for i=0..numberOfFlow-1 {
         	flows[i].in  <-- mergingPipe.hostOut++;
         	flows[i].out --> mergingPipe.hostIn++;

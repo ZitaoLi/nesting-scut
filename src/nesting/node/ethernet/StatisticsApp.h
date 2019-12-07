@@ -20,6 +20,12 @@
 #include <unordered_map>
 #include <iostream>
 #include "inet/common/packet/Packet.h"
+#include "inet/common/packet/chunk/Chunk.h"
+#include "../../ieee8021q/Ieee8021qcbHeader_m.h"
+#include "../../linklayer/common/VLANTagR_m.h"
+
+#include "tinyxml2.h"
+
 
 using namespace omnetpp;
 
@@ -28,8 +34,10 @@ namespace nesting {
 class StatisticsApp: public omnetpp::cSimpleModule {
 
 private:
-    std::unordered_map<unsigned int, unsigned int> dictFlowPort;
-    std::unordered_map<unsigned int, float> dictFlowPER;
+    unsigned int receivedPktNum = 0;
+    unsigned int sentPktNum = 0;
+    std::unordered_map<unsigned int, unsigned int> dictFlowReceivedPktNum;
+    std::unordered_map<unsigned int, unsigned int> dictFlowSentPktNum;
 
 public:
     StatisticsApp();
@@ -40,8 +48,9 @@ protected:
     virtual void handleMessage(cMessage *msg) override;
 
 private:
-    virtual void loadXml();
+    virtual void loadXml(cXMLElement* xml);
     virtual void processPacketFromLowerLevel(inet::Packet *packet);
+    virtual void processPacketFromHigherLevel(inet::Packet *packet);
 };
 
 } /* namespace nesting */

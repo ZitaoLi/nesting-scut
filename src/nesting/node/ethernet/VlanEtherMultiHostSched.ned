@@ -90,8 +90,8 @@ module VlanEtherMultiHostSched
         mergingPipe.channelIn <-- { @display("m=n"); } <-- toChannel.upperLayerOut;
         toChannel.phys <--> { @display("m=n"); } <--> ethg;
 
-        mergingPipe.toStatistics$o --> { @display("n=m"); } --> toStatistics.upperLayerIn;
-        mergingPipe.toStatistics$i <-- { @display("n=m"); } <-- toStatistics.upperLayerOut;
+        mergingPipe.toStatisticsFromLowerLayer$o --> { @display("n=m"); } --> toStatistics.upperLayerIn;
+        mergingPipe.toStatisticsFromLowerLayer$i <-- { @display("n=m"); } <-- toStatistics.upperLayerOut;
 
         toStatistics.phys <--> CC <--> statisticsHost.ethg;
 }

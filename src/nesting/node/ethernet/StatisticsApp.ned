@@ -22,6 +22,9 @@ simple StatisticsApp
 {
     parameters:
         @class(StatisticsApp);
+        xml flows = default(xml("<flows><</flows>"));
     gates:
-        inout port;
+//        inout port;
+        inout fromHigherLayer;
+        inout fromLowerLayer;
 }

@@ -27,6 +27,7 @@ network TestScenario2
         {
             delay = 0.1us;
             datarate = 1Gbps;
+            per = 0.5;
 //            per = 1e-1;
 //            per = 0.99;
         }

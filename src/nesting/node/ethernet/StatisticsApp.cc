@@ -29,19 +29,56 @@ StatisticsApp::~StatisticsApp() {
 }
 
 void StatisticsApp::initialize() {
+    WATCH(receivedPktNum);
+    WATCH(sentPktNum);
 
+    cXMLElement* xml = par("flows").xmlValue();
+    loadXml(xml);
 }
 
 void StatisticsApp::handleMessage(cMessage *msg) {
-    std::cout << "hello world" << std::endl;
+    if (dynamic_cast<inet::Packet *>(msg) == nullptr){delete msg; return;}
+        inet::Packet* packet = check_and_cast<inet::Packet*>(msg);
+
+    if (packet->arrivedOn("fromHigherLayer$i")) {
+        processPacketFromHigherLevel(packet);
+    } else if (packet->arrivedOn("fromLowerLayer$i")) {
+        processPacketFromLowerLevel(packet);
+    }
 }
 
-void StatisticsApp::loadXml() {
-
+void StatisticsApp::loadXml(cXMLElement* xml) {
+    for (cXMLElement* flowxml : xml->getChildren()) {
+        unsigned int uniqueID = atoi(flowxml->getAttribute("id"));
+        std::pair<unsigned int, unsigned int> item1 = {uniqueID, 0};
+        dictFlowReceivedPktNum.insert(item1);
+        std::pair<unsigned int, unsigned int> item2 = {uniqueID, 0};
+        dictFlowSentPktNum.insert(item2);
+    }
 }
 
 void StatisticsApp::processPacketFromLowerLevel(inet::Packet *packet) {
+    if (packet->findTag<VLANTagR>()) {
+        auto rTag = packet->getTag<VLANTagR>();
+        unsigned int uniqueID = rTag->getUniqueID();
+        EV_INFO << getFullPath() << " received TSN-flow: " << uniqueID << endl;
+        dictFlowReceivedPktNum.at(uniqueID) += 1;
+        receivedPktNum += 1;
+    } else {
+        cancelAndDelete(packet);
+    }
+}
 
+void StatisticsApp::processPacketFromHigherLevel(inet::Packet *packet) {
+    if (packet->findTag<VLANTagR>()) {
+        auto rTag = packet->getTag<VLANTagR>();
+        unsigned int uniqueID = rTag->getUniqueID();
+        EV_INFO << getFullPath() << " sent TSN-flow: " << uniqueID << endl;
+        dictFlowSentPktNum.at(uniqueID) += 1;
+        sentPktNum += 1;
+    } else {
+        cancelAndDelete(packet);
+    }
 }
 
 } /* namespace nesting */

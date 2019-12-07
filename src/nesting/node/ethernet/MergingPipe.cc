@@ -38,28 +38,46 @@ void MergingPipe::handleMessage(cMessage *msg) {
 
     int hostInNum = gateSize("hostIn");
     if (packet->arrivedOn("hostIn")) {
+        processPacketFromHigherLevel(packet);
         send(packet, "channelOut");
     } else if (packet->arrivedOn("channelIn")) {
         // submit to target host
-//        processPacketFromLowerLevel(packet);
-        send(packet, "toStatistics$o");
+        processPacketFromLowerLevel(packet);
     }
 }
 
 void MergingPipe::processPacketFromLowerLevel(inet::Packet *packet) {
-    // length of phyHeader = 8Byte, length of EthernetHeader = 14Byte, length of IEEE8021QHeader = 4Byte
-    inet::b offset = inet::b(8 * 8 + 14 * 8 + 4 * 8);
-    // length of IEEE8021QCBHeader = 6Byte
-    inet::b rTagOffset = inet::b(6 * 8);
-    inet::Chunk::enableImplicitChunkSerialization = true; // enable implication chunk serialization
-    if (packet->hasAt<nesting::Ieee8021qcbHeader>(offset, rTagOffset)) {
-        auto rTagHeader = packet->peekDataAt<nesting::Ieee8021qcbHeader>(offset, rTagOffset);
-        unsigned int uniqueID = rTagHeader->getUniqueID();
+//    // length of phyHeader = 8Byte, length of EthernetHeader = 14Byte, length of IEEE8021QHeader = 4Byte
+//    inet::b offset = inet::b(8 * 8 + 14 * 8 + 4 * 8);
+//    // length of IEEE8021QCBHeader = 6Byte
+//    inet::b rTagOffset = inet::b(6 * 8);
+//    inet::Chunk::enableImplicitChunkSerialization = true; // enable implication chunk serialization
+//    if (packet->hasAt<nesting::Ieee8021qcbHeader>(offset, rTagOffset)) {
+//        auto rTagHeader = packet->peekDataAt<nesting::Ieee8021qcbHeader>(offset, rTagOffset);
+//        unsigned int uniqueID = rTagHeader->getUniqueID();
+//    } else {
+//        cancelAndDelete(packet);
+//    }
+//    inet::Chunk::enableImplicitChunkSerialization = false; // disenable implication chunk serialization
+//    delete packet;
+
+    if (packet->findTag<VLANTagR>()) {
+        auto rTag = packet->getTag<VLANTagR>();
+        unsigned int uniqueID = rTag->getUniqueID();
+//        std::cout << getFullPath() << " received TSN-flow: " << uniqueID << std::endl;
+        send(packet, "toStatisticsFromLowerLayer$o");
     } else {
         cancelAndDelete(packet);
     }
-    inet::Chunk::enableImplicitChunkSerialization = false; // disenable implication chunk serialization
-    delete packet;
+}
+
+void MergingPipe::processPacketFromHigherLevel(inet::Packet *packet) {
+    inet::Packet* dupPacket = packet->dup();
+    if (dupPacket->findTag<VLANTagR>()) {
+        send(dupPacket, "toStatisticsFromHigherLayer$o");
+    } else {
+        cancelAndDelete(packet);
+    }
 }
 
 } /* namespace nesting */

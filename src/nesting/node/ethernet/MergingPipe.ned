@@ -33,5 +33,6 @@ simple MergingPipe
         input channelIn;
         output hostOut[];
         output channelOut;
-        inout toStatistics;
+        inout toStatisticsFromLowerLayer;
+        inout toStatisticsFromHigherLayer;
 }

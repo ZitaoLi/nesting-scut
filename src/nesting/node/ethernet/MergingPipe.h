@@ -21,6 +21,7 @@
 #include "inet/common/packet/Packet.h"
 #include "inet/common/packet/chunk/Chunk.h"
 #include "../../ieee8021q/Ieee8021qcbHeader_m.h"
+#include "../../linklayer/common/VLANTagR_m.h"
 
 using namespace omnetpp;
 
@@ -38,6 +39,7 @@ protected:
     virtual void handleMessage(cMessage *msg);
 private:
     virtual void processPacketFromLowerLevel(inet::Packet *packet);
+    virtual void processPacketFromHigherLevel(inet::Packet *packet);
 };
 
 } /* namespace nesting */

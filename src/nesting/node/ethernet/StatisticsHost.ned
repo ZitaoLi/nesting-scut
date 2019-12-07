@@ -61,6 +61,8 @@ module StatisticsHost
         vlanEncap.upperLayerOut --> { @display("n=m"); } --> vlanTagREncap.lowerLayerIn;
         vlanEncap.upperLayerIn <-- { @display("n=m"); } <-- vlanTagREncap.lowerLayerOut;
 
-        statisticsApp.port$o --> { @display("n=m"); } --> vlanTagREncap.upperLayerIn;
-        statisticsApp.port$i <-- { @display("n=m"); } <-- vlanTagREncap.upperLayerOut;
+//        statisticsApp.port$o --> { @display("n=m"); } --> vlanTagREncap.upperLayerIn;
+//        statisticsApp.port$i <-- { @display("n=m"); } <-- vlanTagREncap.upperLayerOut;
+		statisticsApp.fromLowerLayer$o --> { @display("n=m"); } --> vlanTagREncap.upperLayerIn;
+		statisticsApp.fromLowerLayer$i <-- { @display("n=m"); } <-- vlanTagREncap.upperLayerOut;
 }
