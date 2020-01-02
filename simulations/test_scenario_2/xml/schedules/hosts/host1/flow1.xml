@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <schedule>
 	<!-- us -->
-	<cycle>400</cycle>
+	<cycle>400000</cycle>
 	<!-- flow_id=1 -->
 	<host name="host1">
 		<!-- flow -->

@@ -19,25 +19,31 @@
 #include <omnetpp.h>
 #include <unordered_map>
 #include <iostream>
+#include "inet/common/ModuleAccess.h"
 #include "inet/common/packet/Packet.h"
 #include "inet/common/packet/chunk/Chunk.h"
 #include "../../ieee8021q/Ieee8021qcbHeader_m.h"
 #include "../../linklayer/common/VLANTagR_m.h"
+#include "FlowStatisticsApp.h"
 
 #include "tinyxml2.h"
 
 
 using namespace omnetpp;
+using namespace inet;
 
 namespace nesting {
 
-class StatisticsApp: public omnetpp::cSimpleModule {
+class StatisticsApp: public cSimpleModule {
 
 private:
     unsigned int receivedPktNum = 0;
     unsigned int sentPktNum = 0;
+
     std::unordered_map<unsigned int, unsigned int> dictFlowReceivedPktNum;
     std::unordered_map<unsigned int, unsigned int> dictFlowSentPktNum;
+
+    FlowStatisticsApp* flowStatisticsApp;
 
 public:
     StatisticsApp();

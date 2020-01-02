@@ -47,6 +47,7 @@ module TSNHost
             @display("p=321,61,r,200");
         }
         statisticsApp: StatisticsApp {
+            flowStatisticsApp = "^.^.flowStatisticsApp";
             @display("p=188,61");
         }
         vlanTagREncap: VLANTagREncap {

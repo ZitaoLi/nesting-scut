@@ -23,6 +23,7 @@ simple StatisticsApp
     parameters:
         @class(StatisticsApp);
         xml flows = default(xml("<flows><</flows>"));
+        string flowStatisticsApp;
     gates:
 //        inout port;
         inout fromHigherLayer;

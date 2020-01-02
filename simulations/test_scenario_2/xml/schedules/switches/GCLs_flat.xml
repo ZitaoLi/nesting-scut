@@ -1,34 +1,34 @@
 <?xml version="1.0" ?>
 <schedule>
 	<!-- us -->
-	<cycle>400</cycle>
+	<cycle>400000</cycle>
 	
 	<switch name="switch1">
 		<port id="0">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -37,28 +37,28 @@
 		<port id="1">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -67,28 +67,28 @@
 		<port id="2">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -100,28 +100,28 @@
 		<port id="0">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -130,28 +130,28 @@
 		<port id="1">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -160,28 +160,28 @@
 		<port id="2">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -190,28 +190,28 @@
 		<port id="3">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -223,28 +223,28 @@
 		<port id="0">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -253,28 +253,28 @@
 		<port id="1">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -283,28 +283,28 @@
 		<port id="2">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -313,28 +313,28 @@
 		<port id="3">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -346,28 +346,28 @@
 		<port id="0">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -376,28 +376,28 @@
 		<port id="1">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>
@@ -406,28 +406,28 @@
 		<port id="2">
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>1</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>2</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>00000001</bitvector>
 				<uniqueID>3</uniqueID>
 				<phase>0</phase>
 			</entry>
 			<entry>
 				<!-- us -->
-				<length>100</length>
+				<length>100000</length>
 				<bitvector>11111110</bitvector>
 				<uniqueID>0</uniqueID>
 				<phase>0</phase>

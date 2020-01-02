@@ -32,6 +32,8 @@ void StatisticsApp::initialize() {
     WATCH(receivedPktNum);
     WATCH(sentPktNum);
 
+    flowStatisticsApp = getModuleFromPar<FlowStatisticsApp>(par("flowStatisticsApp"), this);
+
     cXMLElement* xml = par("flows").xmlValue();
     loadXml(xml);
 }
@@ -63,10 +65,10 @@ void StatisticsApp::processPacketFromLowerLevel(inet::Packet *packet) {
         unsigned int uniqueID = rTag->getUniqueID();
         EV_INFO << getFullPath() << " received TSN-flow: " << uniqueID << endl;
         dictFlowReceivedPktNum.at(uniqueID) += 1;
+        flowStatisticsApp->dictFlowReceivedPktNum.at(uniqueID) += 1;
         receivedPktNum += 1;
-    } else {
-        cancelAndDelete(packet);
     }
+    cancelAndDelete(packet);
 }
 
 void StatisticsApp::processPacketFromHigherLevel(inet::Packet *packet) {
@@ -75,10 +77,10 @@ void StatisticsApp::processPacketFromHigherLevel(inet::Packet *packet) {
         unsigned int uniqueID = rTag->getUniqueID();
         EV_INFO << getFullPath() << " sent TSN-flow: " << uniqueID << endl;
         dictFlowSentPktNum.at(uniqueID) += 1;
+        flowStatisticsApp->dictFlowSentPktNum.at(uniqueID) += 1;
         sentPktNum += 1;
-    } else {
-        cancelAndDelete(packet);
     }
+    cancelAndDelete(packet);
 }
 
 } /* namespace nesting */

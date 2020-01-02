@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <schedule>
 	<!-- us -->
-	<cycle>200</cycle>
+	<cycle>200000</cycle>
 	<!-- flow_id=2 -->
 	<host name="host1">
 		<!-- flow -->
 		<entry>
 			<!-- us -->
-			<start>100</start>
+			<start>100000</start>
 			<queue>7</queue>
 			<dest>01:00:00:00:00:04</dest>
 			<group>01:00:00:00:00:05</group>
