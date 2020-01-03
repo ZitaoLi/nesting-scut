@@ -23,6 +23,7 @@ TSAlgorithm::~TSAlgorithm() {
     cancelEvent(&requestPacketMsg);
     cancelEvent(&packetEnqueuedMsg);
     cancelEvent(&gateStateChangedMsg);
+    cancelEvent(&gateStateSettedMsg);
 }
 
 void TSAlgorithm::initialize() {

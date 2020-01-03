@@ -42,6 +42,7 @@ FlowStatisticsApp::~FlowStatisticsApp() {
         target << item.first << "," << item.second[0] << "," << item.second[1] << std::endl;
     }
     target.close();
+    // TODO: visualize result
 }
 
 void FlowStatisticsApp::initialize() {
