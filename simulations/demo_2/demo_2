@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for test_case_dir in ./*
+do
+    if test -d $test_case_dir
+    then
+        echo $test_case_dir
+        cd $test_case_dir
+        ./runsim-qt
+        cd ..
+    fi
+done

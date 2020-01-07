@@ -38,8 +38,9 @@ FlowStatisticsApp::~FlowStatisticsApp() {
     for(auto item: result) {
         std::cout << "FlowID = " << item.first <<
                 " sent packet = " << item.second[0] <<
-                " received packet = " << item.second[1] << std::endl;
-        target << item.first << "," << item.second[0] << "," << item.second[1] << std::endl;
+                " received packet = " << item.second[1] <<
+                " no. of destinations = " << item.second[2] << std::endl;
+        target << item.first << "," << item.second[0] << "," << item.second[1] << "," << item.second[2] << std::endl;
     }
     target.close();
     // TODO: visualize result
@@ -61,7 +62,16 @@ void FlowStatisticsApp::loadXml(cXMLElement* xml) {
         dictFlowReceivedPktNum.insert(item1);
         std::pair<unsigned int, unsigned int> item2 = {uniqueID, 0};
         dictFlowSentPktNum.insert(item2);
-        std::pair<unsigned int, std::vector<unsigned int>> item3 = {uniqueID, std::vector<unsigned int>(2, 0)};
+        std::string destinationsString = flowxml->getAttribute("destination");
+        std::vector<int> destinations;
+        unsigned int i = 0;
+        while (i <= destinationsString.length()) {
+            destinations.push_back(destinationsString[i] - '0');
+            i += 2;
+        }
+        unsigned int destinationSize = destinations.size();
+        std::pair<unsigned int, std::vector<unsigned int>> item3 = {uniqueID, std::vector<unsigned int>(3, 0)};
+        item3.second[2] = destinationSize;
         result.insert(item3);
     }
 }

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flows>
+  <flow id="1" source="1" destination="7 8" size="75" cycle="100000" deadline="100000000" reliability="0.5"/>
+</flows>
