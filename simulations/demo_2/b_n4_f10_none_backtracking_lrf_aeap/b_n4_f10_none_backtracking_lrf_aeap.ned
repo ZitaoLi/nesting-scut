@@ -32,40 +32,40 @@ network TestScenario
         }
     submodules:
         flowStatisticsApp: FlowStatisticsApp {
-            @display("p=466,387");
+            @display("p=589,398");
         }
         switch2: VlanEtherSwitchPreemptable2 {
-            @display("p=164,231");
+            @display("p=345,144");
             gates:
                 ethg[3];
         }
         switch3: VlanEtherSwitchPreemptable2 {
-            @display("p=262,145");
+            @display("p=221,209");
             gates:
                 ethg[4];
         }
         switch4: VlanEtherSwitchPreemptable2 {
-            @display("p=282,306");
+            @display("p=436,235");
             gates:
                 ethg[3];
         }
         switch5: VlanEtherSwitchPreemptable2 {
-            @display("p=370,231");
+            @display("p=306,326");
             gates:
                 ethg[4];
         }
         host1: TSNHost {
-            @display("p=38,191");
+            @display("p=390,62");
         }
         host8: TSNHost {
-            @display("p=294,62");
+            @display("p=87,203");
         }
         host6: TSNHost {
-            @display("p=495,146");
+            @display("p=421,369");
         }
         host7: TSNHost {
 
-            @display("p=495,274");
+            @display("p=152,369");
         }
     connections:
         host1.ethg$o --> C --> switch2.ethg$i[0];
