@@ -61,11 +61,11 @@ network TestScenario
             @display("p=87,203");
         }
         host6: TSNHost {
-            @display("p=421,369");
+            @display("p=175,387");
         }
         host7: TSNHost {
 
-            @display("p=152,369");
+            @display("p=414,398");
         }
     connections:
         host1.ethg$o --> C --> switch2.ethg$i[0];
